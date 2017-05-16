@@ -8,13 +8,13 @@
 
 2017-05-11 - Dzień 2
 [MA]
-[AD]- (16.00-17.30) – Dzisiaj zgodnie z powierzonymi mi zadaniami zajęłam się przygotowywaniem wiadomości dotyczących tworzenia grafiki do gier w języku C++. Wiadomości przeze mnie zdobyte zapisałam w pliku „Grafika research.docx”. Problemy pojawiły się podczas obsługi GIT-a. Tak więc na kolejny dzień zaplanowałam naukę korzystania z tego systemu kontroli wersji.
+[AD]- Dzisiaj zgodnie z powierzonymi mi zadaniami zajęłam się przygotowywaniem wiadomości dotyczących tworzenia grafiki do gier w języku C++. Wiadomości przeze mnie zdobyte zapisałam w pliku „Grafika research.docx”. Problemy pojawiły się podczas obsługi GIT-a. Tak więc na kolejny dzień zaplanowałam naukę korzystania z tego systemu kontroli wersji.
 [FG]
 [KT]
 
 2017-05-12 - Dzień 3
 [MA]
-[AD]- (13:30-16:00) – Zgodnie z wczorajszym planem zajęłam się instalacją oraz dokładną nauką korzystania z GIT-a. Pobrałam oraz zainstalowałam aplikacje ułatwiające obsługę GIT-a. Uzupełniłam także mój research nt. tworzenia grafiki w C++.
+[AD]- Zgodnie z wczorajszym planem zajęłam się instalacją oraz dokładną nauką korzystania z GIT-a. Pobrałam oraz zainstalowałam aplikacje ułatwiające obsługę GIT-a. Uzupełniłam także mój research nt. tworzenia grafiki w C++.
 https://git-scm.com/book/pl/v1/Pierwsze-kroki-Podstawy-Git
 https://www.youtube.com/watch?v=LYOXC6DsCiU
 
@@ -38,5 +38,11 @@ https://www.youtube.com/watch?v=LYOXC6DsCiU
 2017-05-15 - Dzień 6
 [MA]
 [AD]-Dzisiaj przygotowałam plik z backlogiem produktu. Umieściłam tam zadania wykonane oraz te przeznaczone jeszcze do wykonania. Nie napotkałam problemów.
+[FG]
+[KT]
+
+2017-05-14 - Dzień 7
+[MA]
+[AD]-Sprawdzenie działania kompilatorów oraz edytorów tekstu. Problem z kompilatorem gcc, rozwiązany przy pomocy tutoriala.
 [FG]
 [KT]
