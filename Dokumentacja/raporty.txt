@@ -9,7 +9,7 @@
 2017-05-11 - Dzień 2
 [MA]
 [AD]- Dzisiaj zgodnie z powierzonymi mi zadaniami zajęłam się przygotowywaniem wiadomości dotyczących tworzenia grafiki do gier w języku C++. Wiadomości przeze mnie zdobyte zapisałam w pliku „Grafika research.docx”. Problemy pojawiły się podczas obsługi GIT-a. Tak więc na kolejny dzień zaplanowałam naukę korzystania z tego systemu kontroli wersji.
-[FG]
+[FG]- Wstępna analiza dostępnych silników graficznych oraz ich zastosowania praktycznego.
 [KT]
 
 2017-05-12 - Dzień 3
@@ -18,7 +18,7 @@
 https://git-scm.com/book/pl/v1/Pierwsze-kroki-Podstawy-Git
 https://www.youtube.com/watch?v=LYOXC6DsCiU
 
-[FG]
+[FG]- Instalacja TortoiseGit, konfiguracja oraz zapoznanie się z działaniem GIT-a, próba wysłania pierwszego commita.
 [KT]
 
 2017-05-13 - Dzień 4
@@ -38,10 +38,10 @@ https://www.youtube.com/watch?v=LYOXC6DsCiU
 2017-05-15 - Dzień 6
 [MA]
 [AD]-Dzisiaj przygotowałam plik z backlogiem produktu. Umieściłam tam zadania wykonane oraz te przeznaczone jeszcze do wykonania. Nie napotkałam problemów.
-[FG]
+[FG]-Umieszczenie uzupełnionego pliku z silnikiem graficznym.
 [KT]
 
-2017-05-14 - Dzień 7
+2017-05-16 - Dzień 7
 [MA]
 [AD]-Sprawdzenie działania kompilatorów oraz edytorów tekstu. Problem z kompilatorem gcc, rozwiązany przy pomocy tutoriala.
 [FG]
