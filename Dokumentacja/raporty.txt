@@ -2,9 +2,9 @@
 
 2017-05-10 - Dzień 1
 [MA]- Załozono repozytoirum kodu w serwisie GitHub. Następnie zostało ono przetestowane, poprzez wgranie kilku plików testowych.
-[AD]
-[FG]
-[KT]
+[AD]- Zapoznanie się z celami projektu.
+[FG]- Zapoznanie się z celami projektu.
+[KT]- Zapoznanie się z celami projektu.
 
 2017-05-11 - Dzień 2
 [MA]- Utworzono prezentację o projekcie. Pliki backlogu projektu zostały uzupełnione, jednakże okazało się, że nie zawierają one wszystkich potrzebnych informacji.
@@ -44,5 +44,5 @@ https://www.youtube.com/watch?v=LYOXC6DsCiU
 2017-05-16 - Dzień 7
 [MA]-Została wykonana kontrola przygotowania wszystkich członków grupy do rozpoczęcia projektu.
 [AD]-Sprawdzenie działania kompilatorów oraz edytorów tekstu. Problem z kompilatorem gcc, rozwiązany przy pomocy tutoriala.
-[FG]
+[FG]-Prezentacja pozostałym członkom grupy informacji dotyczącej silnika graficznego.
 [KT]-Problem z commitami, deinstalacja programów oraz instalacja nowych. Niestety nic to nie dało, nadal brak możliwości commitów, próba rozwiązania problemu z kolegami z grupy.
