@@ -1,19 +1,19 @@
 ﻿RAPORTY:
 
 2017-05-10 - Dzień 1
-[MA]
+[MA]- Załozono repozytoirum kodu w serwisie GitHub. Następnie zostało ono przetestowane, poprzez wgranie kilku plików testowych.
 [AD]
 [FG]
 [KT]
 
 2017-05-11 - Dzień 2
-[MA]
+[MA]- Utworzono prezentację o projekcie. Pliki backlogu projektu zostały uzupełnione, jednakże okazało się, że nie zawierają one wszystkich potrzebnych informacji.
 [AD]- Dzisiaj zgodnie z powierzonymi mi zadaniami zajęłam się przygotowywaniem wiadomości dotyczących tworzenia grafiki do gier w języku C++. Wiadomości przeze mnie zdobyte zapisałam w pliku „Grafika research.docx”. Problemy pojawiły się podczas obsługi GIT-a. Tak więc na kolejny dzień zaplanowałam naukę korzystania z tego systemu kontroli wersji.
 [FG]- Wstępna analiza dostępnych silników graficznych oraz ich zastosowania praktycznego.
 [KT]
 
 2017-05-12 - Dzień 3
-[MA]
+[MA]- Poświęciłem czas na poprawienie backlogu projektu.
 [AD]- Zgodnie z wczorajszym planem zajęłam się instalacją oraz dokładną nauką korzystania z GIT-a. Pobrałam oraz zainstalowałam aplikacje ułatwiające obsługę GIT-a. Uzupełniłam także mój research nt. tworzenia grafiki w C++.
 https://git-scm.com/book/pl/v1/Pierwsze-kroki-Podstawy-Git
 https://www.youtube.com/watch?v=LYOXC6DsCiU
@@ -36,13 +36,13 @@ https://www.youtube.com/watch?v=LYOXC6DsCiU
 [KT]
 
 2017-05-15 - Dzień 6
-[MA]
+[MA]-Założono tablicę organizacyjną w serwisie Trello i dodano do niej wszystkich członków.
 [AD]-Dzisiaj przygotowałam plik z backlogiem produktu. Umieściłam tam zadania wykonane oraz te przeznaczone jeszcze do wykonania. Nie napotkałam problemów.
 [FG]-Umieszczenie uzupełnionego pliku z silnikiem graficznym.
 [KT]
 
 2017-05-16 - Dzień 7
-[MA]
+[MA]-Została wykonana kontrola przygotowania wszystkich członków grupy do rozpoczęcia projektu.
 [AD]-Sprawdzenie działania kompilatorów oraz edytorów tekstu. Problem z kompilatorem gcc, rozwiązany przy pomocy tutoriala.
 [FG]
 [KT]
