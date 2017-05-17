@@ -10,7 +10,7 @@
 [MA]- Utworzono prezentację o projekcie. Pliki backlogu projektu zostały uzupełnione, jednakże okazało się, że nie zawierają one wszystkich potrzebnych informacji.
 [AD]- Dzisiaj zgodnie z powierzonymi mi zadaniami zajęłam się przygotowywaniem wiadomości dotyczących tworzenia grafiki do gier w języku C++. Wiadomości przeze mnie zdobyte zapisałam w pliku „Grafika research.docx”. Problemy pojawiły się podczas obsługi GIT-a. Tak więc na kolejny dzień zaplanowałam naukę korzystania z tego systemu kontroli wersji.
 [FG]- Wstępna analiza dostępnych silników graficznych oraz ich zastosowania praktycznego.
-[KT]
+[KT]- Przygotowanie pliku „Gotowy przykład” z pomocnymi artykułami do napisania kodu i linkiem do gotowej gry, gdzie znajdowała się sama gra oraz cały kod. 
 
 2017-05-12 - Dzień 3
 [MA]- Poświęciłem czas na poprawienie backlogu projektu.
@@ -19,7 +19,7 @@ https://git-scm.com/book/pl/v1/Pierwsze-kroki-Podstawy-Git
 https://www.youtube.com/watch?v=LYOXC6DsCiU
 
 [FG]- Instalacja TortoiseGit, konfiguracja oraz zapoznanie się z działaniem GIT-a, próba wysłania pierwszego commita.
-[KT]
+[KT]- Przygotowanie pliku „Gotowy przykład” z pomocnymi artykułami do napisania kodu i linkiem do gotowej gry, gdzie znajdowała się sama gra oraz cały kod. 
 
 2017-05-13 - Dzień 4
 {DZIEŃ WOLNY}
@@ -39,10 +39,10 @@ https://www.youtube.com/watch?v=LYOXC6DsCiU
 [MA]-Założono tablicę organizacyjną w serwisie Trello i dodano do niej wszystkich członków.
 [AD]-Dzisiaj przygotowałam plik z backlogiem produktu. Umieściłam tam zadania wykonane oraz te przeznaczone jeszcze do wykonania. Nie napotkałam problemów.
 [FG]-Umieszczenie uzupełnionego pliku z silnikiem graficznym.
-[KT]
+[KT]-Poszukiwania kolejnych pomocnych algorytmów oraz przydatnych informacji. 
 
 2017-05-16 - Dzień 7
 [MA]-Została wykonana kontrola przygotowania wszystkich członków grupy do rozpoczęcia projektu.
 [AD]-Sprawdzenie działania kompilatorów oraz edytorów tekstu. Problem z kompilatorem gcc, rozwiązany przy pomocy tutoriala.
 [FG]
-[KT]
+[KT]-Problem z commitami, deinstalacja programów oraz instalacja nowych. Niestety nic to nie dało, nadal brak możliwości commitów, próba rozwiązania problemu z kolegami z grupy.
