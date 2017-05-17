@@ -1,5 +1,0 @@
-2017-05-10 09:30 – Czteroosobowa grupa podzieliła się pracą nad projektem „Warcaby”. Został wytypowany pierwszy Scrum Master – Maciej.
-2017-05-10 18:00 – Zostało utworzone repozytorium projektu w serwisie Github. Współpracownicy zostali dodani do projektu.
-2017-05-11 23:00 – Przepisano notatki dotyczące projektu tworząc backlog. Została założona prezentacja, która docelowo ma być sprawozdaniem z projektu.
-2017-05-11 23:10 - Została podjęta decyzja o używaniu w całym projekcie formatu datu wg. normy ISO 8601 (RRRR-MM-DD gg:mm).
-2017-05-11 23:15 - Wykonano kopię konwersacji grupowej.
