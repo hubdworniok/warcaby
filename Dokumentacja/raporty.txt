@@ -46,3 +46,45 @@ https://www.youtube.com/watch?v=LYOXC6DsCiU
 [AD]-Sprawdzenie działania kompilatorów oraz edytorów tekstu. Problem z kompilatorem gcc, rozwiązany przy pomocy tutoriala.
 [FG]-Prezentacja pozostałym członkom grupy informacji dotyczącej silnika graficznego.
 [KT]-Problem z commitami, deinstalacja programów oraz instalacja nowych. Niestety nic to nie dało, nadal brak możliwości commitów, próba rozwiązania problemu z kolegami z grupy.
+
+
+2017-05-17 - Dzień 8
+[MA]-
+[AD]-Rozwiązanie problemu z commitami Kingi Talagi. Przejęcie pozycji scrum mastera. Sprawdzenie i rozdzielenie zadań na bieżący sprint.
+[FG]-
+[KT]-
+
+
+2017-05-18 - Dzień 9
+[MA]-
+[AD]-
+[FG]-
+[KT]-
+
+
+2017-05-19 - Dzień 10
+[MA]-
+[AD]-
+[FG]-
+[KT]-
+
+
+2017-05-20 - Dzień 11
+[MA]-
+[AD]-
+[FG]-
+[KT]-
+
+
+2017-05-21 - Dzień 12
+[MA]-
+[AD]-
+[FG]-
+[KT]-
+
+
+2017-05-22 - Dzień 13
+[MA]-
+[AD]-
+[FG]-
+[KT]-
