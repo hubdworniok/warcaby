@@ -59,14 +59,14 @@ https://www.youtube.com/watch?v=LYOXC6DsCiU
 [MA]-
 [AD]-
 [FG]-
-[KT]-
+[KT]-Instalacja kompilatora gcc, nauka pisania grafiki.
 
 
 2017-05-19 - Dzień 10
 [MA]-
 [AD]-
 [FG]-
-[KT]-
+[KT]-Próba napisania header'a klasy INTERFEJSU.
 
 
 2017-05-20 - Dzień 11
