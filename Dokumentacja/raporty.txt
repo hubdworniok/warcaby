@@ -51,21 +51,21 @@ https://www.youtube.com/watch?v=LYOXC6DsCiU
 2017-05-17 - Dzień 8
 [MA]-
 [AD]-Rozwiązanie problemu z commitami Kingi Talagi. Przejęcie pozycji scrum mastera. Sprawdzenie i rozdzielenie zadań na bieżący sprint.
-[FG]-Zapoznanie się z nowymi zadaniami oraz algorytmami potrzebnymi do napisania gry.
+[FG]-Zapoznanie się z nowymi zadaniami oraz algorytmami potrzebnymi do napisania gry, oraz z strukturą projektu.
 [KT]-Rozwiązanie problemów z dnia wczesniejszego. Instalacja nowych programów.
 
 
 2017-05-18 - Dzień 9
 [MA]-
 [AD]-
-[FG]-Poszerzenie wiedzy na temat klas w C++.
+[FG]-Poszerzenie wiedzy na temat klas w C++, analiza zagadnienia oraz przykładów.
 [KT]-Instalacja kompilatora gcc, nauka pisania grafiki.
 
 
 2017-05-19 - Dzień 10
 [MA]-
 [AD]-
-[FG]-Przystąpienie do bezpośreniej realizacji zadania - praca nad kodem do header'a klasy gra.
+[FG]-Przystąpienie do bezpośreniej realizacji zadania - praca nad kodem do header'a klasy GRA.
 [KT]-Próba napisania header'a klasy INTERFEJSU.
 
 
