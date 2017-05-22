@@ -49,6 +49,8 @@ https://www.youtube.com/watch?v=LYOXC6DsCiU
 
 
 2017-05-17 - Dzień 8
+
+Planowanie pracy na kolejny sprint, analiza postępu, ocena czy założenia pierwszego sprintu zostały zrealizowane. Zmiana Scrum Mastera.
 [MA]-
 [AD]-Rozwiązanie problemu z commitami Kingi Talagi. Przejęcie pozycji scrum mastera. Sprawdzenie i rozdzielenie zadań na bieżący sprint.
 [FG]-Zapoznanie się z nowymi zadaniami oraz algorytmami potrzebnymi do napisania gry, oraz z strukturą projektu.
@@ -57,14 +59,14 @@ https://www.youtube.com/watch?v=LYOXC6DsCiU
 
 2017-05-18 - Dzień 9
 [MA]-
-[AD]-
+[AD]-Pomoc w zrozumieniu celi na bieżący sprint, brak zgłoszonych problemów.
 [FG]-Poszerzenie wiedzy na temat klas w C++, analiza zagadnienia oraz przykładów.
 [KT]-Instalacja kompilatora gcc, nauka pisania grafiki.
 
 
 2017-05-19 - Dzień 10
 [MA]-
-[AD]-
+[AD]-Tworzenie sprawozdania, prezentacji, sprawdzenie czy wystąpiły problemy w realizacji zadań oraz rozumieniu celów sprintu. Brak zgłoszonych problemów, aktualizacja backlogu produktu.
 [FG]-Przystąpienie do bezpośreniej realizacji zadania - praca nad kodem do header'a klasy GRA.
 [KT]-Próba napisania header'a klasy INTERFEJSU.
 
