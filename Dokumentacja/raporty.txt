@@ -89,6 +89,6 @@ Planowanie pracy na kolejny sprint, analiza postępu, ocena czy założenia pier
 
 2017-05-22 - Dzień 13
 [MA]-
-[AD]-
+[AD]- Praca nad prezentacją oraz sprawozdaniem z projektu, sprawdzenie czy zaistniały jakieś problemy, aktualizacja backlogu.
 [FG]-Praca nad header klasy GRA
 [KT]-
