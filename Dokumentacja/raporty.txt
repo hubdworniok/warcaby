@@ -92,3 +92,9 @@ Planowanie pracy na kolejny sprint, analiza postępu, ocena czy założenia pier
 [AD]- Praca nad prezentacją oraz sprawozdaniem z projektu, sprawdzenie czy zaistniały jakieś problemy, aktualizacja backlogu.
 [FG]-Praca nad header klasy GRA
 [KT]-
+
+2017-05-23 - Dzień 14
+[MA]-
+[AD]-Aktualizacja sprawozdania, wprowadzenie poprawek do prezentacji.
+[FG]-
+[KT]-
