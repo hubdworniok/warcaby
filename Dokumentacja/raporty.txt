@@ -51,21 +51,21 @@ https://www.youtube.com/watch?v=LYOXC6DsCiU
 2017-05-17 - Dzień 8
 
 Planowanie pracy na kolejny sprint, analiza postępu, ocena czy założenia pierwszego sprintu zostały zrealizowane. Zmiana Scrum Mastera.
-[MA]-
+[MA]-Przekazanie pozycji scrum mastera. Edukacja z zakresu budowy klas w C++.
 [AD]-Rozwiązanie problemu z commitami Kingi Talagi. Przejęcie pozycji scrum mastera. Sprawdzenie i rozdzielenie zadań na bieżący sprint.
 [FG]-Zapoznanie się z nowymi zadaniami oraz algorytmami potrzebnymi do napisania gry, oraz z strukturą projektu.
 [KT]-Rozwiązanie problemów z dnia wczesniejszego. Instalacja nowych programów.
 
 
 2017-05-18 - Dzień 9
-[MA]-
+[MA]-Posortowanie plików projektu. Ćwiczenia dotyczące budowy klas w języku C++.
 [AD]-Pomoc w zrozumieniu celi na bieżący sprint, brak zgłoszonych problemów.
 [FG]-Poszerzenie wiedzy na temat klas w C++, analiza zagadnienia oraz przykładów.
 [KT]-Instalacja kompilatora gcc, nauka pisania grafiki.
 
 
 2017-05-19 - Dzień 10
-[MA]-
+[MA]-Praca nad kodem do header'a klasy GRA.
 [AD]-Tworzenie sprawozdania, prezentacji, sprawdzenie czy wystąpiły problemy w realizacji zadań oraz rozumieniu celów sprintu. Brak zgłoszonych problemów, aktualizacja backlogu produktu.
 [FG]-Przystąpienie do bezpośreniej realizacji zadania - praca nad kodem do header'a klasy GRA.
 [KT]-Próba napisania header'a klasy INTERFEJSU.
@@ -88,13 +88,13 @@ Planowanie pracy na kolejny sprint, analiza postępu, ocena czy założenia pier
 
 
 2017-05-22 - Dzień 13
-[MA]-
+[MA]- Dyskusje na temat header'u GRA. Utworzenie pliku z deklaracjami metod.
 [AD]- Praca nad prezentacją oraz sprawozdaniem z projektu, sprawdzenie czy zaistniały jakieś problemy, aktualizacja backlogu.
 [FG]-Praca nad header klasy GRA
 [KT]-
 
 2017-05-23 - Dzień 14
-[MA]-
+[MA]-Zakończenie prac nad header'em klasy GRA.
 [AD]-Aktualizacja sprawozdania, wprowadzenie poprawek do prezentacji.
 [FG]-Zakończenie prac nad header klasy GRA.
 [KT]-

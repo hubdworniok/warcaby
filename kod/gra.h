@@ -1,5 +1,5 @@
-#ifndef PLIK2_H_INCLUDED
-#define PLIK2_H_INCLUDED
+#ifndef GRA_H_INCLUDED
+#define GRA_H_INCLUDED
 
 #include <iostream>
 #include <stdlib>
@@ -17,12 +17,12 @@ class Game : public QWidget
         //tutaj wypisaæ nazwy funkcji potrzebnych do gry, które bêd¹ stworzone w plik.cpp//
 
     private:
-
-        //nazwy zmiennych//
+        int Punkty_1;
+        int Punkty_2;
 };
 
 
 
 
 
-#endif // PLIK2_H_INCLUDED
+#endif // GRA_H_INCLUDED
