@@ -91,10 +91,10 @@ Planowanie pracy na kolejny sprint, analiza postępu, ocena czy założenia pier
 [MA]- Dyskusje na temat header'u GRA. Utworzenie pliku z deklaracjami metod.
 [AD]- Praca nad prezentacją oraz sprawozdaniem z projektu, sprawdzenie czy zaistniały jakieś problemy, aktualizacja backlogu.
 [FG]-Praca nad header klasy GRA
-[KT]-
+[KT]-Doszkalanie się z pisania header'ów.
 
 2017-05-23 - Dzień 14
 [MA]-Zakończenie prac nad header'em klasy GRA.
 [AD]-Aktualizacja sprawozdania, wprowadzenie poprawek do prezentacji.
 [FG]-Zakończenie prac nad header klasy GRA.
-[KT]-
+[KT]-Kontynuacja pisania header'a klasy INTERFEJSU.
