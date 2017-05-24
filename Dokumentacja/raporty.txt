@@ -98,3 +98,10 @@ Planowanie pracy na kolejny sprint, analiza postępu, ocena czy założenia pier
 [AD]-Aktualizacja sprawozdania, wprowadzenie poprawek do prezentacji.
 [FG]-Zakończenie prac nad header klasy GRA.
 [KT]-Kontynuacja pisania header'a klasy INTERFEJSU.
+
+2017-05-23 - Dzień 15
+[MA]-
+[AD]-Instalacja programu Qt Creator, nauka obsługi, przygotowywanie się do implementacji kodu.
+[FG]-
+[KT]-
+
