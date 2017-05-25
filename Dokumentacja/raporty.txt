@@ -103,7 +103,7 @@ Planowanie pracy na kolejny sprint, analiza postępu, ocena czy założenia pier
 [MA]-
 [AD]-Instalacja programu Qt Creator, nauka obsługi, przygotowywanie się do implementacji kodu.
 [FG]-
-[KT]-
+[KT]-Nauka obsługi i instalacja programu Qt Creator.
 
 2017-05-25 - Dzień 16
 [MA]-
