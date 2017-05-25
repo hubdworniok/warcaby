@@ -99,9 +99,34 @@ Planowanie pracy na kolejny sprint, analiza postępu, ocena czy założenia pier
 [FG]-Zakończenie prac nad header klasy GRA.
 [KT]-Kontynuacja pisania header'a klasy INTERFEJSU.
 
-2017-05-23 - Dzień 15
+2017-05-24 - Dzień 15
 [MA]-
 [AD]-Instalacja programu Qt Creator, nauka obsługi, przygotowywanie się do implementacji kodu.
 [FG]-
 [KT]-
 
+2017-05-25 - Dzień 16
+[MA]-
+[AD]-
+[FG]-
+[KT]-
+
+2017-05-26 - Dzień 17
+[MA]-
+[AD]-
+[FG]-
+[KT]-
+
+2017-05-27 - Dzień 18
+{DZIEŃ WOLNY}
+[MA]-
+[AD]-
+[FG]-
+[KT]-
+
+2017-05-28 - Dzień 19
+{DZIEŃ WOLNY}
+[MA]-
+[AD]-
+[FG]-
+[KT]-
