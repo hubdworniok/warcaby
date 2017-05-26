@@ -107,13 +107,13 @@ Planowanie pracy na kolejny sprint, analiza postępu, ocena czy założenia pier
 
 2017-05-25 - Dzień 16
 [MA]-
-[AD]-
+[AD]-Przystąpienie do pisania kodu programu, ciągła nauka Qt, pisanie sprawozdania własnego.
 [FG]-
 [KT]-Nauka obsługi i instalacja programu Qt Creator.
 
 2017-05-26 - Dzień 17
 [MA]-
-[AD]-
+[AD]-Pisanie sprawozdania własnego, dlasza realizacja powierzonych zadań.
 [FG]-
 [KT]-
 
