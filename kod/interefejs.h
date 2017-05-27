@@ -4,22 +4,22 @@
 using namespace std;
 
 
-class Interface : public QWidget
+class Interfejs : public QWidget
 {
   Q_OBJECT
   public:
-        Interface();
-        ~Interface();
+        Interfejs();
+        ~Interfejs();
   public slots:
-        void FsaveOn();
-        void FsaveOff();
+        void Zapisz();
+        void Niezapisuj();
   private:
         Game *game;
 
-        QPushButton *pbNowa_gra;
-        QPushButton *pbZapisz_gre;
-        QPushButton *pbWczytaj_gre;
-        QPushButton *pbWyjscie;
+        QPushButton *pbNOWA_GRA;
+        QPushButton *pbZAPISZ;
+        QPushButton *pbWCZYTAJ;
+        QPushButton *pbKONIEC_GRY;
         QLabel *infoLabel;
         QLabel *autorLabel;
 };
