@@ -130,3 +130,21 @@ Planowanie pracy na kolejny sprint, analiza postępu, ocena czy założenia pier
 [AD]-
 [FG]-
 [KT]-
+
+2017-05-29 - Dzień 20
+[MA]-
+[AD]-
+[FG]-
+[KT]-
+
+2017-05-30 - Dzień 21
+[MA]-
+[AD]-
+[FG]-
+[KT]-
+
+2017-05-31 - Dzień 22
+[MA]-
+[AD]-
+[FG]-
+[KT]-
