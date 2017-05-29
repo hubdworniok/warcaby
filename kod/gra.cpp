@@ -344,4 +344,155 @@ void Game::mousePressEvent(QMouseEvent *event)
                              }
                     }
                     break;
+
+                case 2:
+                    {
+                        if(nast_zbijanie==0)
+                            {
+                            wyzerujzbite();
+                            sprawdzMBpionek(2);
+                            zbijanie = 0;
+                            for (i=0; i<8; i++)
+                                for (j=0; j<8; j++)
+                                    if(MRpionek[i][j]==1)
+                                    {
+                                        zbijanie++;
+                                        break;
+                                    }
+                            if (zbijanie==0)
+                                sprawdzMRpionek(2);
+                            }
+
+                        if(((planszagry[poz_x+2][poz_y+2]==2 || planszagry[poz_x+2][poz_y+2]==12) && MRpionek[poz_x][poz_y]==1) && nast_zbijanie==0)
+                            {
+                            for (i=2; i<10; i++)
+                                for (j=2; j<10; j++)
+                                    if(planszagry[i][j]<0)
+                                        planszagry[i][j] = -planszagry[i][j];
+
+                            planszagry[poz_x+2][poz_y+2] = -planszagry[poz_x+2][poz_y+2];
+
+                            if(bicie==0)
+                                sprawdzMRpole(poz_x+2, poz_y+2, -planszagry[poz_x+2][poz_y+2]);
+                            else
+                                sprawdzMBpole(poz_x+2, poz_y+2, -planszagry[poz_x+2][poz_y+2]);
+                            }
+                        if(planszagry[poz_x+2][poz_y+2]==0 && MRpole[poz_x][poz_y]==1)
+                            {
+                            for (i=2; i<10; i++)
+                                for (j=2; j<10; j++)
+                                    if (planszagry[i][j]<0)
+                                    {
+                                        planszagry[poz_x+2][poz_y+2] = -planszagry[i][j];
+
+                                        planszagry[i][j] = 0;
+                                    }
+
+                            if(zbijanie>0)
+                                {
+                                if(MRpole[poz_x+1][poz_y+1]==2)
+                                    zbite_pionki[poz_x+3][poz_y+3] = 1;
+                                if(MRpole[poz_x-1][poz_y-1]==2)
+                                    zbite_pionki[poz_x+1][poz_y+1] = 1;
+                                if(MRpole[poz_x+1][poz_y-1]==2)
+                                    zbite_pionki[poz_x+3][poz_y+1] = 1;
+                                if(MRpole[poz_x-1][poz_y+1]==2)
+                                    zbite_pionki[poz_x+1][poz_y+3] = 1;
+                                }
+
+                            if(zbijanie>0)
+                                {
+                                nast_zbijanie = 0;
+                                sprawdzMBpole(poz_x+2, poz_y+2, planszagry[poz_x+2][poz_y+2]);
+                                for (i=0; i<8; i++)
+                                    for (j=0; j<8; j++)
+                                        if(MRpole[i][j]==1)
+                                        {
+                                            nast_zbijanie++;
+                                            break;
+                                        }
+                                }
+
+                            if(nast_zbijanie>0)
+                                planszagry[poz_x+2][poz_y+2] = -planszagry[poz_x+2][poz_y+2];
+
+                            if(nast_zbijanie>0)
+                                etap = 2;
+                            else
+                                {
+                                zerujMRpole();
+
+                                if(poz_x==7)
+                                    planszagry[poz_x+2][poz_y+2] = 12;
+
+                                for (i=2; i<10; i++)
+                                    for (j=2; j<10; j++)
+                                        if(zbite[i][j]==1)
+                                            planszagry[i][j] = 0;
+
+                                nast_zbijanie = 0;
+                                etap = 1;
+                                }
+                            }
+                    } break;
+                default: {}
+        }
+
+        if(nast_zbijanie>0)
+            emit saveOff();
+        else
+            if(etap!=0)
+                emit zapisz();
+
+        if(etap==2)
+            {
+            etap = -1;
+            for (i=2; i<10; i++)
+                for (j=2; j<10; j++)
+                    if(planszagry[i][j]==2 || planszagry[i][j]==12 || planszagry[i][j]==-2 || planszagry[i][j]==-12)
+                        etap = 2;
+            if(etap!=-1)
+            {
+                sprawdzMRpionek(2);
+                etap = -1;
+                for (i=0; i<8; i++)
+                    for (j=0; j<8; j++)
+                        if(MRpionek[i][j]==1)
+                            etap = 2;
+            }
+            if(etap==-1)
+            {
+                sprawdzMBpionek(2);
+                for (i=0; i<8; i++)
+                    for (j=0; j<8; j++)
+                        if(MRpionek[i][j]==1)
+                            etap = 2;
+            }
+        }
+
+        if (etap==1)
+            {
+                etap = -2;
+                for (i=2; i<10; i++)
+                    for (j=2; j<10; j++)
+                        if(planszagry[i][j]==1 || planszagry[i][j]==11 || planszagry[i][j]==-1 || planszagry[i][j]==-11)
+                            etap = 1;
+                if(etap!=-2)
+                {
+                    sprawdzMRpionek(1);
+                    etap = -2;
+                    for (i=0; i<8; i++)
+                        for (j=0; j<8; j++)
+                            if(MRpionek[i][j]==1)
+                                etap = 1;
+                }
+                if(etap==-2)
+                {
+                    sprawdzMBpionek(1);
+                    for (i=0; i<8; i++)
+                        for (j=0; j<8; j++)
+                            if(MRpionek[i][j]==1)
+                                etap = 1;
+                }
+            }
 // FUNKCJA KINGI mousePressEvent
