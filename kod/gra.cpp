@@ -271,4 +271,18 @@ void Game::mousePressEvent(QMouseEvent *event)
                             if (zbijanie==0)
                                 sprawdzMRpionek(1);
                             }
+                        if(((planszagry[poz_x+2][poz_y+2]==1 || planszagry[poz_x+2][poz_y+2]==11) && MRpionek[poz_x][poz_y]==1) && nast_zbijanie==0)
+                            {
+                            for (i=2; i<10; i++)
+                                for (j=2; j<10; j++)
+                                    if(planszagry[i][j]<0)
+                                        planszagry[i][j] = -planszagry[i][j];
+
+                            planszagry[poz_x+2][poz_y+2] = -planszagry[poz_x+2][poz_y+2];
+
+                            if(zbijanie==0)
+                                sprawdzMRpole(poz_x+2, poz_y+2, -planszagry[poz_x+2][poz_y+2]);
+                            else
+                                sprawdzMBpole(poz_x+2, poz_y+2, -planszagry[poz_x+2][poz_y+2]);
+                            }
 // FUNKCJA KINGI mousePressEvent
