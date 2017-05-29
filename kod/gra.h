@@ -14,7 +14,7 @@ class Game : public QWidget
         Game();
         ~Game();
 
-        //tutaj wypisaæ nazwy funkcji potrzebnych do gry, które bêd¹ stworzone w plik.cpp//
+        //tutaj wypisaæ nazwy funkcji potrzebnych do gry, które bêd¹ stworzone w gra.cpp//
 
     private:
         int Punkty_1;
