@@ -31,7 +31,7 @@ int main(int agrc, char *argv[]){
     while(GraczA < 12 && GraczB < 12){
     	//Czyscimy ekran
     	//printf("\033[2J");
-        system("pause");
+        system("cls");
         
     	//Rysowanie ekranu gry
     	//Dodajemy pasek ABC
