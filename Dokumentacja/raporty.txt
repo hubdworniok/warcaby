@@ -23,16 +23,9 @@ https://www.youtube.com/watch?v=LYOXC6DsCiU
 2017-05-13 - Dzień 4
 {DZIEŃ WOLNY}
 [MA] Przygotowano strukturę raportów.
-[AD]
-[FG]
-[KT]
 
 2017-05-14 - Dzień 5
 {DZIEŃ WOLNY}
-[MA]
-[AD]
-[FG]
-[KT]
 
 2017-05-15 - Dzień 6
 [MA]-Założono tablicę organizacyjną w serwisie Trello i dodano do niej wszystkich członków.
@@ -72,19 +65,9 @@ Planowanie pracy na kolejny sprint, analiza postępu, ocena czy założenia pier
 
 2017-05-20 - Dzień 11
 {DZIEŃ WOLNY}
-[MA]-
-[AD]-
-[FG]-
-[KT]-
-
 
 2017-05-21 - Dzień 12
 {DZIEŃ WOLNY}
-[MA]-
-[AD]-
-[FG]-
-[KT]-
-
 
 2017-05-22 - Dzień 13
 [MA]- Dyskusje na temat header'u GRA. Utworzenie pliku z deklaracjami metod.
@@ -118,17 +101,9 @@ Planowanie pracy na kolejny sprint, analiza postępu, ocena czy założenia pier
 
 2017-05-27 - Dzień 18
 {DZIEŃ WOLNY}
-[MA]-
-[AD]-
-[FG]-
-[KT]-
 
 2017-05-28 - Dzień 19
 {DZIEŃ WOLNY}
-[MA]-
-[AD]-
-[FG]-
-[KT]-
 
 2017-05-29 - Dzień 20
 [MA]-
