@@ -134,7 +134,7 @@ Planowanie pracy na kolejny sprint, analiza postępu, ocena czy założenia pier
 [MA]-
 [AD]-
 [FG]-
-[KT]-
+[KT]-Pisanie kodu programu (fukncjia mousePressEvent).
 
 2017-05-30 - Dzień 21
 [MA]-
