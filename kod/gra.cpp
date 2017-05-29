@@ -285,4 +285,63 @@ void Game::mousePressEvent(QMouseEvent *event)
                             else
                                 sprawdzMBpole(poz_x+2, poz_y+2, -planszagry[poz_x+2][poz_y+2]);
                             }
+                        if(planszagry[poz_x+2][poz_y+2]==0 && MRpole[poz_x][poz_y]==1)
+                            {
+                                for (i=2; i<10; i++)
+                                    for (j=2; j<10; j++)
+                                        if(planszagry[i][j]<0)
+                                        {
+                                            planszagry[poz_x+2][poz_y+2] = -planszagry[i][j];
+
+                                            planszagry[i][j] = 0;
+                                        }
+
+                                if(zbijanie>0)
+                                    {
+                                    if(MRpole[poz_x+1][poz_y+1]==2)
+                                        zbite_pionki[poz_x+3][poz_y+3] = 1;
+                                    if(MRpole[poz_x-1][poz_y-1]==2)
+                                        zbite_pionki[poz_x+1][poz_y+1] = 1;
+                                    if(MRpole[poz_x+1][poz_y-1]==2)
+                                        zbite_pionki[poz_x+3][poz_y+1] = 1;
+                                    if(MRpole[poz_x-1][poz_y+1]==2)
+                                        zbite_pionki[poz_x+1][poz_y+3] = 1;
+                                    }
+
+                                if(zbijane>0)
+                                    {
+                                    nast_zbijanie = 0;
+                                    sprawdzMBpole(poz_x+2, poz_y+2, planszagry[poz_x+2][poz_y+2]);
+                                    for (i=0; i<8; i++)
+                                        for (j=0; j<8; j++)
+                                            if(MRpole[i][j]==1)
+                                            {
+                                                nast_zbijanie++;
+                                                break;
+                                            }
+                                    }
+
+                                if(nast_zbijanie->0)
+                                    planszagry[poz_x+2][poz_y+2] = -planszagry[poz_x+2][poz_y+2];
+
+                                if(nast_zbijanie>0)
+                                    etap = 1;
+                                else
+                                    {
+                                    wyzerujMRpole();
+
+                                    if(poz_x==0)
+                                        planszagry[poz_x+2][poz_y+2] = 11;
+
+                                    for (i=2; i<10; i++)
+                                        for (j=2; j<10; j++)
+                                            if(zbite_pionki[i][j]==1)
+                                                planszagry[i][j] = 0;
+
+                                    nast_zbijanie = 0;
+                                    etap = 2;
+                                    }
+                             }
+                    }
+                    break;
 // FUNKCJA KINGI mousePressEvent
