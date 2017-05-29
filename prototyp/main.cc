@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 #define SIZE 8  //Rozmiar planszy
 #define ABS(x) ((x)<0 ? (-(x)) : (x))
 
@@ -30,7 +31,8 @@ int main(int agrc, char *argv[]){
     while(GraczA < 12 && GraczB < 12){
     	//Czyscimy ekran
     	printf("\033[2J");
-   	 
+        //system("pause");
+        
     	//Rysowanie ekranu gry
     	//Dodajemy pasek ABC
     	cout << "  |";    //Dla kolumny 1,2,3...

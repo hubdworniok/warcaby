@@ -82,19 +82,19 @@ Planowanie pracy na kolejny sprint, analiza postępu, ocena czy założenia pier
 [KT]-Kontynuacja pisania header'a klasy INTERFEJSU.
 
 2017-05-24 - Dzień 15
-[MA]-
+[MA]-Rozpoczęcie pracy nad materiałem demonstracyjnym.
 [AD]-Instalacja programu Qt Creator, nauka obsługi, przygotowywanie się do implementacji kodu.
 [FG]-Pisanie kodu programu
 [KT]-Przejęcie roli Scrum Mastera, uzupełnienie Backlogu, Sprawozdania. 
 
 2017-05-25 - Dzień 16
-[MA]-
+[MA]-Praca nad materiałem demonstracyjnym - napisanie kodu wyświętlającego planszę.
 [AD]-Przystąpienie do pisania kodu programu, ciągła nauka Qt, pisanie sprawozdania własnego.
 [FG]-Pisanie kodu programu (właściwe funkcje).
 [KT]-Nauka obsługi i instalacja programu Qt Creator.
 
 2017-05-26 - Dzień 17
-[MA]-
+[MA]-Praca nad materiałem demonstracyjnym - napisanie kodu przechwytującego dane z klawiatury.
 [AD]-Pisanie sprawozdania własnego, dlasza realizacja powierzonych zadań.
 [FG]-Dalsze pisanie kodu programu (właściwe funkcje).
 [KT]-Pisanie kodu programu (a dokładnie fukncji mi przydzielonej- mousePressEvent).
@@ -106,7 +106,7 @@ Planowanie pracy na kolejny sprint, analiza postępu, ocena czy założenia pier
 {DZIEŃ WOLNY}
 
 2017-05-29 - Dzień 20
-[MA]-
+[MA]-Praca nad materiałem demonstracyjnym - sfinalizowanie prac. Zapoznanie się z obecnym stanem głównego kodu gry.
 [AD]-
 [FG]-Oddanie funkcji sprawdzMBpole, przejęcie roli Scrum Mastera:uzupełnienie zadań z podziałem na klasy w Trello, analiza postępu prac.
 [KT]-Pisanie kodu programu (fukncjia mousePressEvent).
