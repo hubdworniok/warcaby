@@ -495,4 +495,27 @@ void Game::mousePressEvent(QMouseEvent *event)
                                 etap = 1;
                 }
             }
+
+
+        if (etap<0)
+            zerujMRpole();
+
+        if(etap==1)
+            emit zmianaEtap("<br>TERAZ<br><b>BIALYCH<br></b>");
+        if(etap==2)
+            emit zmianaEtap("<br>TERAZ<br><b>CZARNYCH<br></b>");
+        if(etap==-1)
+            {
+            emit zmianaEtap("<br>WYGRANA<br><b>BIALYCH<br></b>");
+            emit saveOff();
+            }
+        if(etap==-2)
+            {
+            emit zmianaEtap("<br>WYGRANA<br><b>CZARNYCH<br></b>");
+            emit saveOff();
+            }
+
+        repaint();
+    }
+}
 // FUNKCJA KINGI mousePressEvent
