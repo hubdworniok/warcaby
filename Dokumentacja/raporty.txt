@@ -112,7 +112,7 @@ Planowanie pracy na kolejny sprint, analiza postępu, ocena czy założenia pier
 [KT]-Pisanie kodu programu (funkcja mousePressEvent).
 
 2017-05-30 - Dzień 21
-[MA]-
+[MA]-Napisanie metody sprawdzającej pionek. Weryfikacja kodu i jego konsolidacja.
 [AD]-Wspólna praca nad finalizacją projektu, prezentacją, poprawki w kodzie.
 [FG]-
 [KT]-
