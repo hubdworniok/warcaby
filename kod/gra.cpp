@@ -1,5 +1,6 @@
-
+//kod zrodlowy
 #include "gra.h"
+#include "interfejs.h"
 
 using namespace std;
 
