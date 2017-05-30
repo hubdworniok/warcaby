@@ -2,9 +2,7 @@
  * Plik nag?ówkowy gra.h
 */
 
-
-#ifndef GRA_H_INCLUDED
-#define GRA_H_INCLUDED
+#pragma once
 
 #include <iostream>
 #include <stdlib>
@@ -58,28 +56,3 @@ class Gra : public QWidget {
                 int bicie;
                 int bicieNext;
 };
-
-class Interfejs : public QWidget {
-  Q_OBJECT
-  public:
-        Interfejs();
-        ~Interfejs();
-  public slots:
-        void FsaveOn();
-        void FsaveOff();
-  private:
-        Game *game;
-
-        QPushButton *pbNOWA_GRA;
-        QPushButton *pbZAPISZ;
-        QPushButton *pbWCZYTAJ;
-        QPushButton *pbKONIEC_GRY;
-        QLabel *infoLabel;
-        QLabel *autorLabel;
-};
-
-
-
-
-
-#endif // GRA_H_INCLUDED

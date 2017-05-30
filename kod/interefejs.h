@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <stdlib>
 
@@ -14,7 +15,7 @@ class Interfejs : public QWidget
         void Zapisz();
         void Niezapisuj();
   private:
-        Game *game;
+        Gra *game;
 
         QPushButton *pbNOWA_GRA;
         QPushButton *pbZAPISZ;
