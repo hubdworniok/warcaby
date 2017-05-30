@@ -132,7 +132,7 @@ void Gra::nowagra() {
     repaint();
 }
 
-void Game::saveGame() {
+void Gra::saveGame() {
 
      ofstream fout("warcabyzapisz.sav");
      for (i=2; i<10; i++)
@@ -147,7 +147,7 @@ void Game::saveGame() {
      fout.close();
 }
 
-void Game::wczytajgre() {
+void Gra::wczytajgre() {
 
     wyzerujplansze();
 
@@ -173,7 +173,7 @@ void Game::wczytajgre() {
     }
 }
 
-void Game::sprawdzMRpionek(int kolor) {
+void Gra::sprawdzMRpionek(int kolor) {
 
     wyzerujMRpionek();
 
@@ -372,20 +372,20 @@ void Gra::mouseMoveEvent(QMouseEvent *event) {
     repaint();
 }
 
-//Konstruktor klasy Game
-Game::Game()
+//Konstruktor klasy Gra
+Gra::Gra()
 {
     Punkty_1 = 0;
     Punkty_2 = 0;
 }
 
-//Destuktor klasy Game
-Game::~Game() {}
+//Destuktor klasy Gra
+Gra::~Gra() {}
 
 
 // FUNKCJA KINGI mousePressEvent
 
-void Game::mousePressEvent(QMouseEvent *event)
+void Gra::mousePressEvent(QMouseEvent *event)
 {
     poz_x = this->poz_x/(this->width()/8);
     poz_y = this->poz_y/(this->height()/8);

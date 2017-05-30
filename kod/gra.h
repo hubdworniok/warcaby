@@ -19,10 +19,10 @@ class Gra : public QWidget {
                 Gra();
                 ~Gra();
 
-                void zerujPlansza();
-                void zerujZbite();
-                void zerujMRPionek();
-                void zerujMRPole();
+                void wyzerujplansze();
+                void wyzerujzbite();
+                void wyzerujMRpionek();
+                void wyzerujMRpole();
 
                 void sprawdzMRPionek(int kolor);
                 void sprawdzMBPionek(int kolor);
@@ -38,7 +38,7 @@ class Gra : public QWidget {
                 void zapiszgra();
                 void wczytajgre();
         signals:
-                void zmianaEtap(QString info);
+                void zmianaetapu(QString info);
                 void saveOn();
                 void saveOff();
         private:
@@ -70,10 +70,10 @@ class Interfejs : public QWidget {
   private:
         Game *game;
 
-        QPushButton *pbNowa_gra;
-        QPushButton *pbZapisz_gre;
-        QPushButton *pbWczytaj_gre;
-        QPushButton *pbWyjscie;
+        QPushButton *pbNOWA_GRA;
+        QPushButton *pbZAPISZ;
+        QPushButton *pbWCZYTAJ;
+        QPushButton *pbKONIEC_GRY;
         QLabel *infoLabel;
         QLabel *autorLabel;
 };
