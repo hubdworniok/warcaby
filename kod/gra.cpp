@@ -866,4 +866,95 @@ void Gra::mousePressEvent(QMouseEvent *event){
         repaint();
     }
 }
+<<<<<<< HEAD
+// FUNKCJA KINGI mousePressEvent
+
+void Gra::paintEvent(QPaintEvent*) {
+
+  int szerPola = this->width()/8;
+  int wysPola = this->height()/8;
+
+  int x;
+  int y = 0;
+
+  QPainter rysownik(this);
+  for (int i=0 ; i<8 ; i++) {
+        x=0;
+        for (int j=0 ; j<8 ; j++) {
+            if((i%2==0 && j%2!=0) || (i%2!=0 && j%2==0)) {
+                rysownik.setBrush(QBrush(QColor(128, 64, 0)));
+                rysownik.drawRect(x, y, szerPola, wysPola);
+            }
+            else {
+                rysownik.setBrush(QBrush(QColor(225, 226, 163)));
+                rysownik.drawRect(x, y, szerPola, wysPola);
+            }
+
+            if (MRpole[i][j]==1) {
+                rysownik.setBrush(QBrush(Qt::green));
+                rysownik.drawRect(x, y, szerPola, wysPola);
+            }
+            if (MRpole[i][j]==2) {
+                rysownik.setBrush(QBrush(Qt::red));
+                rysownik.drawRect(x, y, szerPola, wysPola);
+            }
+
+            switch(plansza[i+2][j+2]) {
+            case 1: {
+                    rysownik.setBrush(QBrush(Qt::white));
+                    rysownik.drawEllipse(x+7, y+7, szerPola-14, wysPola-14);
+                } break;
+            case 2: {
+                    rysownik.setBrush(QBrush(Qt::black));
+                    rysownik.drawEllipse(x+7, y+7, szerPola-14, wysPola-14);
+                } break;
+            case 11: {
+                    rysownik.setBrush(QBrush(Qt::white));
+                    rysownik.drawEllipse(x+7, y+7, szerPola-14, wysPola-14);
+                    rysownik.setBrush(QBrush(Qt::black));
+                    rysownik.drawEllipse(x+20, y+20, szerPola-40, wysPola-40);
+                } break;
+            case 12: {
+                    rysownik.setBrush(QBrush(Qt::black));
+                    rysownik.drawEllipse(x+7, y+7, szerPola-14, wysPola-14);
+                    rysownik.setBrush(QBrush(Qt::white));
+                    rysownik.drawEllipse(x+20, y+20, szerPola-40, wysPola-40);
+                } break;
+            case -1: {
+                    rysownik.setBrush(QBrush(Qt::yellow));
+                    rysownik.drawRect(x, y, szerPola, wysPola);
+                    rysownik.setBrush(QBrush(Qt::white));
+                    rysownik.drawEllipse(x+7, y+7, szerPola-14, wysPola-14);
+                } break;
+            case -2: {
+                    rysownik.setBrush(QBrush(Qt::yellow));
+                    rysownik.drawRect(x, y, szerPola, wysPola);
+                    rysownik.setBrush(QBrush(Qt::black));
+                    rysownik.drawEllipse(x+7, y+7, szerPola-14, wysPola-14);
+                } break;
+            case -11: {
+                    rysownik.setBrush(QBrush(Qt::yellow));
+                    rysownik.drawRect(x, y, szerPola, wysPola);
+                    rysownik.setBrush(QBrush(Qt::white));
+                    rysownik.drawEllipse(x+7, y+7, szerPola-14, wysPola-14);
+                    rysownik.setBrush(QBrush(Qt::black));
+                    rysownik.drawEllipse(x+20, y+20, szerPola-40, wysPola-40);
+                } break;
+            case -12: {
+                    rysownik.setBrush(QBrush(Qt::yellow));
+                    rysownik.drawRect(x, y, szerPola, wysPola);
+                    rysownik.setBrush(QBrush(Qt::black));
+                    rysownik.drawEllipse(x+7, y+7, szerPola-14, wysPola-14);
+                    rysownik.setBrush(QBrush(Qt::white));
+                    rysownik.drawEllipse(x+20, y+20, szerPola-40, wysPola-40);
+                } break;
+            default: {}
+            }
+            x=x+szerPola;
+        }
+        y=y+wysPola;
+  }
+}
+=======
+>>>>>>> 8456af2c33280d3291565588da469acf3e3336f1
 
