@@ -4,8 +4,15 @@
 
 #pragma once
 
-#include <iostream>
-#include <stdlib>
+#include <QBoxLayout>
+#include <QLabel>
+#include <QMouseEvent>
+#include <QPainter>
+#include <QPushButton>
+#include <QWidget>
+
+#include <fstream>
+
 
 using namespace std;
 
@@ -22,10 +29,10 @@ class Gra : public QWidget {
                 void wyzerujMRpionek();
                 void wyzerujMRpole();
 
-                void sprawdzMRPionek(int kolor);
-                void sprawdzMBPionek(int kolor);
-                void sprawdzMRPole(int x, int y, int pionek);
-                void sprawdzMBPole(int x, int y, int pionek);
+                void sprawdzMRpionek(int kolor);
+                void sprawdzMBpionek(int kolor);
+                void sprawdzMRpole(int x, int y, int pionek);
+                void sprawdzMBpole(int x, int y, int pionek);
 
                 void mouseMoveEvent(QMouseEvent *event);
                 void mousePressEvent(QMouseEvent *event);
@@ -43,16 +50,16 @@ class Gra : public QWidget {
                 int i;
                 int j;
 
-                int xPos;
-                int yPos;
+                int poz_x;
+                int poz_y;
 
-                int plansza[12][12];
-                int zbite[12][12];
-                int MRPionek[8][8];
-                int MRPole[8][8];
+                int planszagry[12][12];
+                int zbite_pionki[12][12];
+                int MRpionek[8][8];
+                int MRpole[8][8];
 
-                int tmp;
+                int temp;
                 int etap;
-                int bicie;
-                int bicieNext;
+                int zbijanie;
+                int nast_zbijanie;
 };
