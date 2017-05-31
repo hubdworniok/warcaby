@@ -4,62 +4,6 @@
 
 using namespace std;
 
-Interfejs::Interfejs() {
-
-    gra = new Gra();
-
-    setWindowTitle("Witaj w grze warcaby!");
-    setFixedSize(572,492);
-
-    pbNOWA_GRA = new QPushButton(tr("&NOWA GRA"), this);
-    pbZAPISZ = new QPushButton(tr("&ZAPISZ GRE"), this);
-    pbZAPISZ->setDisabled(true);
-    connect(gra, SIGNAL(saveOn()), this, SLOT(FsaveOn()));
-    connect(gra, SIGNAL(saveOff()), this, SLOT(FsaveOff()));
-
-    pbWCZYTAJ = new QPushButton(tr("&WCZYTAJ GRE"), this);
-
-    pbWyjscie = new QPushButton(tr("&KONIEC"), this);
-
-        infoLabel = new QLabel(tr("<br>ROZPOCZNIJ<br><b>NOWA GRE</b><br>"));
-        infoLabel->setFrameStyle(QFrame::WinPanel | QFrame::Raised/*Sunken*/);
-        infoLabel->setAlignment(Qt::AlignCenter);
-        connect(gra, SIGNAL(zmianaetapu(QString)), infoLabel, SLOT(setText(QString)));
-
-
-        QVBoxLayout *lPrzyciski = new QVBoxLayout();
-        lPrzyciski->addStretch(1);
-        lPrzyciski->addWidget(pbNOWA_GRA);
-        lPrzyciski->addStretch(1);
-        lPrzyciski->addWidget(infoLabel);
-        lPrzyciski->addStretch(1);
-        lPrzyciski->addWidget(pbZAPISZ);
-        lPrzyciski->addWidget(pbWCZYTAJ);
-        lPrzyciski->addWidget(pbKONIEC_GRY);
-        lPrzyciski->addStretch(10);
-
-        QHBoxLayout *lPlansza = new QHBoxLayout();
-        lPlansza->addLayout(lPrzyciski);
-        lPlansza->addWidget(gra);
-        lPlansza->setStretch(1,1);
-
-        this->setLayout(lPlansza);
-
-        connect(pbNOWA_GRA, SIGNAL(clicked()), gra, SLOT(nowagra()));
-        connect(pbZAPISZ, SIGNAL(clicked()), gra, SLOT(zapiszgra()));
-        connect(pbWCZYTAJ, SIGNAL(clicked()), gra, SLOT(wczytajgre()));
-        connect(pbKONIEC_GRY, SIGNAL(clicked()), this, SLOT(close()));
-}
-Interfejs::~Interfejs() {}
-
-void Interfejs::Zapisz() {
-    pbZAPISZ->setDisabled(false);
-}
-
-void Interfejs::Niezapisuj() {
-    pbZAPISZ->setDisabled(true);
-}
-
 Gra::Gra(){
 
     wyzerujplansze();
@@ -97,14 +41,14 @@ void Gra::wyzerujMRpionek() {
 
     for (i=0; i<8; i++)
         for (j=0; j<8; j++)
-            MRPionek[i][j] = 0;
+            MRpionek[i][j] = 0;
 }
 
-void Gra::wyzerujMRPole() {
+void Gra::wyzerujMRpole() {
 
     for (i=0; i<8; i++)
         for (j=0; j<8; j++)
-            MRPole[i][j] = 0;
+            MRpole[i][j] = 0;
 }
 
 void Gra::nowagra() {
@@ -123,7 +67,7 @@ void Gra::nowagra() {
                 planszagry[i][j] = 1;
         }
 
-    wyzerujMRPole();
+    wyzerujMRpole();
     nast_zbijanie = 0;
 
     etap = 1;
@@ -133,7 +77,7 @@ void Gra::nowagra() {
     repaint();
 }
 
-void Gra::saveGame() {
+void Gra::zapiszgra() {
 
      ofstream fout("warcabyzapisz.sav");
      for (i=2; i<10; i++)
@@ -283,38 +227,38 @@ void Gra::sprawdzMBpionek(int kol) {
             } break;
             case 11: {
                 if (kol==1) {
-                    for (tmp=0; tmp<7; tmp++) {
-                        if (zbite_pionki[i+1+tmp][j-1-tmp]==1 || planszagry[i+1+tmp][j-1-tmp]==1 || planszagry[i+1+tmp][j-1-tmp]==11 || planszagry[i+1+tmp][j-1-tmp]==-1 || planszagry[i+1+tmp][j-1-tmp]==-11)
+                    for (temp=0; temp<7; temp++) {
+                        if (zbite_pionki[i+1+temp][j-1-temp]==1 || planszagry[i+1+temp][j-1-temp]==1 || planszagry[i+1+temp][j-1-temp]==11 || planszagry[i+1+temp][j-1-temp]==-1 || planszagry[i+1+temp][j-1-temp]==-11)
                             break;
-                        if ((planszagry[i+1+tmp][j-1-tmp]==2 || planszagry[i+1+tmp][j-1-tmp]==12 || planszagry[i+1+tmp][j-1-tmp]==-2 || planszagry[i+1+tmp][j-1-tmp]==-12) && zbite_pionki[i+1+tmp][j-1-tmp]==0) {
-                         if (planszagry[i+2+tmp][j-2-tmp]==0)
+                        if ((planszagry[i+1+temp][j-1-temp]==2 || planszagry[i+1+temp][j-1-temp]==12 || planszagry[i+1+temp][j-1-temp]==-2 || planszagry[i+1+temp][j-1-temp]==-12) && zbite_pionki[i+1+temp][j-1-temp]==0) {
+                         if (planszagry[i+2+temp][j-2-temp]==0)
                             MRpionek[i-2][j-2] = 1;
                          break;
                         }
                     }
-                    for (tmp=0; tmp<7; tmp++) {
-                        if (zbite_pionki[i+1+tmp][j+1+tmp]==1 || planszagry[i+1+tmp][j+1+tmp]==1 || planszagry[i+1+tmp][j+1+tmp]==11 || planszagry[i+1+tmp][j-1-tmp]==-1 || planszagry[i+1+tmp][j-1-tmp]==-11)
+                    for (temp=0; temp<7; temp++) {
+                        if (zbite_pionki[i+1+temp][j+1+temp]==1 || planszagry[i+1+temp][j+1+temp]==1 || planszagry[i+1+temp][j+1+temp]==11 || planszagry[i+1+temp][j-1-temp]==-1 || planszagry[i+1+temp][j-1-temp]==-11)
                             break;
-                        if ((planszagry[i+1+tmp][j+1+tmp]==2 || planszagry[i+1+tmp][j+1+tmp]==12 || planszagry[i+1+tmp][j+1+tmp]==-2 || planszagry[i+1+tmp][j+1+tmp]==-12) && zbite_pionki[i+1+tmp][j+1+tmp]==0) {
-                         if (planszagry[i+2+tmp][j+2+tmp]==0)
+                        if ((planszagry[i+1+temp][j+1+temp]==2 || planszagry[i+1+temp][j+1+temp]==12 || planszagry[i+1+temp][j+1+temp]==-2 || planszagry[i+1+temp][j+1+temp]==-12) && zbite_pionki[i+1+temp][j+1+temp]==0) {
+                         if (planszagry[i+2+temp][j+2+temp]==0)
                             MRpionek[i-2][j-2] = 1;
                          break;
                         }
                     }
-                    for (tmp=0; tmp<7; tmp++) {
-                        if (zbite_pionki[i-1-tmp][j-1-tmp]==1 || planszagry[i-1-tmp][j-1-tmp]==1 || planszagry[i-1-tmp][j-1-tmp]==11 || planszagry[i+1+tmp][j-1-tmp]==-1 || planszagry[i+1+tmp][j-1-tmp]==-11)
+                    for (temp=0; temp<7; temp++) {
+                        if (zbite_pionki[i-1-temp][j-1-temp]==1 || planszagry[i-1-temp][j-1-temp]==1 || planszagry[i-1-temp][j-1-temp]==11 || planszagry[i+1+temp][j-1-temp]==-1 || planszagry[i+1+temp][j-1-temp]==-11)
                             break;
-                        if ((planszagry[i-1-tmp][j-1-tmp]==2 || planszagry[i-1-tmp][j-1-tmp]==12 || planszagry[i-1-tmp][j-1-tmp]==-2 || planszagry[i-1-tmp][j-1-tmp]==-12) && zbite_pionki[i-1-tmp][j-1-tmp]==0) {
-                         if (planszagry[i-2-tmp][j-2-tmp]==0)
+                        if ((planszagry[i-1-temp][j-1-temp]==2 || planszagry[i-1-temp][j-1-temp]==12 || planszagry[i-1-temp][j-1-temp]==-2 || planszagry[i-1-temp][j-1-temp]==-12) && zbite_pionki[i-1-temp][j-1-temp]==0) {
+                         if (planszagry[i-2-temp][j-2-temp]==0)
                             MRpionek[i-2][j-2] = 1;
                          break;
                         }
                     }
-                    for (tmp=0; tmp<7; tmp++) {
-                        if (zbite_pionki[i-1-tmp][j+1+tmp]==1 || planszagry[i-1-tmp][j+1+tmp]==1 || planszagry[i-1-tmp][j+1+tmp]==11 || planszagry[i+1+tmp][j-1-tmp]==-1 || planszagry[i+1+tmp][j-1-tmp]==-11)
+                    for (temp=0; temp<7; temp++) {
+                        if (zbite_pionki[i-1-temp][j+1+temp]==1 || planszagry[i-1-temp][j+1+temp]==1 || planszagry[i-1-temp][j+1+temp]==11 || planszagry[i+1+temp][j-1-temp]==-1 || planszagry[i+1+temp][j-1-temp]==-11)
                             break;
-                        if ((planszagry[i-1-tmp][j+1+tmp]==2 || planszagry[i-1-tmp][j+1+tmp]==12 || planszagry[i-1-tmp][j+1+tmp]==-2 || planszagry[i-1-tmp][j+1+tmp]==-12) && zbite_pionki[i-1-tmp][j+1+tmp]==0) {
-                         if (planszagry[i-2-tmp][j+2+tmp]==0)
+                        if ((planszagry[i-1-temp][j+1+temp]==2 || planszagry[i-1-temp][j+1+temp]==12 || planszagry[i-1-temp][j+1+temp]==-2 || planszagry[i-1-temp][j+1+temp]==-12) && zbite_pionki[i-1-temp][j+1+temp]==0) {
+                         if (planszagry[i-2-temp][j+2+temp]==0)
                             MRpionek[i-2][j-2] = 1;
                          break;
                         }
@@ -323,38 +267,38 @@ void Gra::sprawdzMBpionek(int kol) {
             } break;
             case -11: {
                     if (kol==1) {
-                        for (tmp=0; tmp<7; tmp++) {
-                            if (zbite_pionki[i+1+tmp][j-1-tmp]==1 || planszagry[i+1+tmp][j-1-tmp]==1 || planszagry[i+1+tmp][j-1-tmp]==11)
+                        for (temp=0; temp<7; temp++) {
+                            if (zbite_pionki[i+1+temp][j-1-temp]==1 || planszagry[i+1+temp][j-1-temp]==1 || planszagry[i+1+temp][j-1-temp]==11)
                                 break;
-                            if ((planszagry[i+1+tmp][j-1-tmp]==2 || planszagry[i+1+tmp][j-1-tmp]==12 || planszagry[i+1+tmp][j-1-tmp]==-2 || planszagry[i+1+tmp][j-1-tmp]==-12) && zbite_pionki[i+1+tmp][j-1-tmp]==0) {
-                             if (planszagry[i+2+tmp][j-2-tmp]==0)
+                            if ((planszagry[i+1+temp][j-1-temp]==2 || planszagry[i+1+temp][j-1-temp]==12 || planszagry[i+1+temp][j-1-temp]==-2 || planszagry[i+1+temp][j-1-temp]==-12) && zbite_pionki[i+1+temp][j-1-temp]==0) {
+                             if (planszagry[i+2+temp][j-2-temp]==0)
                                 MRpionek[i-2][j-2] = 1;
                              break;
                             }
                         }
-                        for (tmp=0; tmp<7; tmp++) {
-                            if (zbite_pionki[i+1+tmp][j+1+tmp]==1 || planszagry[i+1+tmp][j+1+tmp]==1 || planszagry[i+1+tmp][j+1+tmp]==11)
+                        for (temp=0; temp<7; temp++) {
+                            if (zbite_pionki[i+1+temp][j+1+temp]==1 || planszagry[i+1+temp][j+1+temp]==1 || planszagry[i+1+temp][j+1+temp]==11)
                                 break;
-                            if ((planszagry[i+1+tmp][j+1+tmp]==2 || planszagry[i+1+tmp][j+1+tmp]==12 || planszagry[i+1+tmp][j+1+tmp]==-2 || planszagry[i+1+tmp][j+1+tmp]==-12) && zbite_pionki[i+1+tmp][j+1+tmp]==0) {
-                             if (planszagry[i+2+tmp][j+2+tmp]==0)
+                            if ((planszagry[i+1+temp][j+1+temp]==2 || planszagry[i+1+temp][j+1+temp]==12 || planszagry[i+1+temp][j+1+temp]==-2 || planszagry[i+1+temp][j+1+temp]==-12) && zbite_pionki[i+1+temp][j+1+temp]==0) {
+                             if (planszagry[i+2+temp][j+2+temp]==0)
                                 MRpionek[i-2][j-2] = 1;
                              break;
                             }
                         }
-                        for (tmp=0; tmp<7; tmp++) {
-                            if (zbite_pionki[i-1-tmp][j-1-tmp]==1 || planszagry[i-1-tmp][j-1-tmp]==1 || planszagry[i-1-tmp][j-1-tmp]==11)
+                        for (temp=0; temp<7; temp++) {
+                            if (zbite_pionki[i-1-temp][j-1-temp]==1 || planszagry[i-1-temp][j-1-temp]==1 || planszagry[i-1-temp][j-1-temp]==11)
                                 break;
-                            if ((planszagry[i-1-tmp][j-1-tmp]==2 || planszagry[i-1-tmp][j-1-tmp]==12 || planszagry[i-1-tmp][j-1-tmp]==-2 || planszagry[i-1-tmp][j-1-tmp]==-12) && zbite_pionki[i-1-tmp][j-1-tmp]==0) {
-                             if (planszagry[i-2-tmp][j-2-tmp]==0)
+                            if ((planszagry[i-1-temp][j-1-temp]==2 || planszagry[i-1-temp][j-1-temp]==12 || planszagry[i-1-temp][j-1-temp]==-2 || planszagry[i-1-temp][j-1-temp]==-12) && zbite_pionki[i-1-temp][j-1-temp]==0) {
+                             if (planszagry[i-2-temp][j-2-temp]==0)
                                 MRpionek[i-2][j-2] = 1;
                              break;
                             }
                         }
-                        for (tmp=0; tmp<7; tmp++) {
-                            if (zbite_pionki[i-1-tmp][j+1+tmp]==1 || planszagry[i-1-tmp][j+1+tmp]==1 || planszagry[i-1-tmp][j+1+tmp]==11)
+                        for (temp=0; temp<7; temp++) {
+                            if (zbite_pionki[i-1-temp][j+1+temp]==1 || planszagry[i-1-temp][j+1+temp]==1 || planszagry[i-1-temp][j+1+temp]==11)
                                 break;
-                            if ((planszagry[i-1-tmp][j+1+tmp]==2 || planszagry[i-1-tmp][j+1+tmp]==12 || planszagry[i-1-tmp][j+1+tmp]==-2 || planszagry[i-1-tmp][j+1+tmp]==-12) && zbite_pionki[i-1-tmp][j+1+tmp]==0) {
-                             if (planszagry[i-2-tmp][j+2+tmp]==0)
+                            if ((planszagry[i-1-temp][j+1+temp]==2 || planszagry[i-1-temp][j+1+temp]==12 || planszagry[i-1-temp][j+1+temp]==-2 || planszagry[i-1-temp][j+1+temp]==-12) && zbite_pionki[i-1-temp][j+1+temp]==0) {
+                             if (planszagry[i-2-temp][j+2+temp]==0)
                                 MRpionek[i-2][j-2] = 1;
                              break;
                             }
@@ -363,38 +307,38 @@ void Gra::sprawdzMBpionek(int kol) {
             } break;
             case 12: {
                     if (kol==2) {
-                        for (tmp=0; tmp<7; tmp++) {
-                            if (zbite_pionki[i+1+tmp][j-1-tmp]==1 || planszagry[i+1+tmp][j-1-tmp]==2 || planszagry[i+1+tmp][j-1-tmp]==12 || planszagry[i+1+tmp][j-1-tmp]==-2 || planszagry[i+1+tmp][j-1-tmp]==-12)
+                        for (temp=0; temp<7; temp++) {
+                            if (zbite_pionki[i+1+temp][j-1-temp]==1 || planszagry[i+1+temp][j-1-temp]==2 || planszagry[i+1+temp][j-1-temp]==12 || planszagry[i+1+temp][j-1-temp]==-2 || planszagry[i+1+temp][j-1-temp]==-12)
                                 break;
-                            if ((planszagry[i+1+tmp][j-1-tmp]==1 || planszagry[i+1+tmp][j-1-tmp]==11 || planszagry[i+1+tmp][j-1-tmp]==-1 || planszagry[i+1+tmp][j-1-tmp]==-11) && zbite_pionki[i+1+tmp][j-1-tmp]==0) {
-                             if (planszagry[i+2+tmp][j-2-tmp]==0)
+                            if ((planszagry[i+1+temp][j-1-temp]==1 || planszagry[i+1+temp][j-1-temp]==11 || planszagry[i+1+temp][j-1-temp]==-1 || planszagry[i+1+temp][j-1-temp]==-11) && zbite_pionki[i+1+temp][j-1-temp]==0) {
+                             if (planszagry[i+2+temp][j-2-temp]==0)
                                 MRpionek[i-2][j-2] = 1;
                              break;
                             }
                         }
-                        for (tmp=0; tmp<7; tmp++) {
-                            if (zbite_pionki[i+1+tmp][j+1+tmp]==1 || planszagry[i+1+tmp][j+1+tmp]==2 || planszagry[i+1+tmp][j+1+tmp]==12 || planszagry[i+1+tmp][j-1-tmp]==-2 || planszagry[i+1+tmp][j-1-tmp]==-12)
+                        for (temp=0; temp<7; temp++) {
+                            if (zbite_pionki[i+1+temp][j+1+temp]==1 || planszagry[i+1+temp][j+1+temp]==2 || planszagry[i+1+temp][j+1+temp]==12 || planszagry[i+1+temp][j-1-temp]==-2 || planszagry[i+1+temp][j-1-temp]==-12)
                                 break;
-                            if ((planszagry[i+1+tmp][j+1+tmp]==1 || planszagry[i+1+tmp][j+1+tmp]==11 || planszagry[i+1+tmp][j+1+tmp]==-1 || planszagry[i+1+tmp][j+1+tmp]==-11) && zbite_pionki[i+1+tmp][j+1+tmp]==0) {
-                             if (planszagry[i+2+tmp][j+2+tmp]==0)
+                            if ((planszagry[i+1+temp][j+1+temp]==1 || planszagry[i+1+temp][j+1+temp]==11 || planszagry[i+1+temp][j+1+temp]==-1 || planszagry[i+1+temp][j+1+temp]==-11) && zbite_pionki[i+1+temp][j+1+temp]==0) {
+                             if (planszagry[i+2+temp][j+2+temp]==0)
                                 MRpionek[i-2][j-2] = 1;
                              break;
                             }
                         }
-                        for (tmp=0; tmp<7; tmp++) {
-                            if (zbite_pionki[i-1-tmp][j-1-tmp]==1 || planszagry[i-1-tmp][j-1-tmp]==2 || planszagry[i-1-tmp][j-1-tmp]==12 || planszagry[i+1+tmp][j-1-tmp]==-2 || planszagry[i+1+tmp][j-1-tmp]==-12)
+                        for (temp=0; temp<7; temp++) {
+                            if (zbite_pionki[i-1-temp][j-1-temp]==1 || planszagry[i-1-temp][j-1-temp]==2 || planszagry[i-1-temp][j-1-temp]==12 || planszagry[i+1+temp][j-1-temp]==-2 || planszagry[i+1+temp][j-1-temp]==-12)
                                 break;
-                            if ((planszagry[i-1-tmp][j-1-tmp]==1 || planszagry[i-1-tmp][j-1-tmp]==11 || planszagry[i-1-tmp][j-1-tmp]==-1 || planszagry[i-1-tmp][j-1-tmp]==-11) && zbite_pionki[i-1-tmp][j-1-tmp]==0) {
-                             if (planszagry[i-2-tmp][j-2-tmp]==0)
+                            if ((planszagry[i-1-temp][j-1-temp]==1 || planszagry[i-1-temp][j-1-temp]==11 || planszagry[i-1-temp][j-1-temp]==-1 || planszagry[i-1-temp][j-1-temp]==-11) && zbite_pionki[i-1-temp][j-1-temp]==0) {
+                             if (planszagry[i-2-temp][j-2-temp]==0)
                                 MRpionek[i-2][j-2] = 1;
                              break;
                             }
                         }
-                        for (tmp=0; tmp<7; tmp++) {
-                            if (zbite_pionki[i-1-tmp][j+1+tmp]==1 || planszagry[i-1-tmp][j+1+tmp]==2 || planszagry[i-1-tmp][j+1+tmp]==12 || planszagry[i+1+tmp][j-1-tmp]==-2 || planszagry[i+1+tmp][j-1-tmp]==-12)
+                        for (temp=0; temp<7; temp++) {
+                            if (zbite_pionki[i-1-temp][j+1+temp]==1 || planszagry[i-1-temp][j+1+temp]==2 || planszagry[i-1-temp][j+1+temp]==12 || planszagry[i+1+temp][j-1-temp]==-2 || planszagry[i+1+temp][j-1-temp]==-12)
                                 break;
-                            if ((planszagry[i-1-tmp][j+1+tmp]==1 || planszagry[i-1-tmp][j+1+tmp]==11 || planszagry[i-1-tmp][j+1+tmp]==-1 || planszagry[i-1-tmp][j+1+tmp]==-11) && zbite_pionki[i-1-tmp][j+1+tmp]==0) {
-                             if (planszagry[i-2-tmp][j+2+tmp]==0)
+                            if ((planszagry[i-1-temp][j+1+temp]==1 || planszagry[i-1-temp][j+1+temp]==11 || planszagry[i-1-temp][j+1+temp]==-1 || planszagry[i-1-temp][j+1+temp]==-11) && zbite_pionki[i-1-temp][j+1+temp]==0) {
+                             if (planszagry[i-2-temp][j+2+temp]==0)
                                 MRpionek[i-2][j-2] = 1;
                              break;
                             }
@@ -403,38 +347,38 @@ void Gra::sprawdzMBpionek(int kol) {
             } break;
             case -12: {
                     if (kol==2) {
-                        for (tmp=0; tmp<7; tmp++) {
-                            if (zbite_pionki[i+1+tmp][j-1-tmp]==1 || planszagry[i+1+tmp][j-1-tmp]==2 || planszagry[i+1+tmp][j-1-tmp]==12)
+                        for (temp=0; temp<7; temp++) {
+                            if (zbite_pionki[i+1+temp][j-1-temp]==1 || planszagry[i+1+temp][j-1-temp]==2 || planszagry[i+1+temp][j-1-temp]==12)
                                 break;
-                            if ((planszagry[i+1+tmp][j-1-tmp]==1 || planszagry[i+1+tmp][j-1-tmp]==11 || planszagry[i+1+tmp][j-1-tmp]==-1 || planszagry[i+1+tmp][j-1-tmp]==-11) && zbite_pionki[i+1+tmp][j-1-tmp]==0) {
-                             if (planszagry[i+2+tmp][j-2-tmp]==0)
+                            if ((planszagry[i+1+temp][j-1-temp]==1 || planszagry[i+1+temp][j-1-temp]==11 || planszagry[i+1+temp][j-1-temp]==-1 || planszagry[i+1+temp][j-1-temp]==-11) && zbite_pionki[i+1+temp][j-1-temp]==0) {
+                             if (planszagry[i+2+temp][j-2-temp]==0)
                                 MRpionek[i-2][j-2] = 1;
                              break;
                             }
                         }
-                        for (tmp=0; tmp<7; tmp++) {
-                            if (zbite_pionki[i+1+tmp][j+1+tmp]==1 || planszagry[i+1+tmp][j+1+tmp]==2 || planszagry[i+1+tmp][j+1+tmp]==12)
+                        for (temp=0; temp<7; temp++) {
+                            if (zbite_pionki[i+1+temp][j+1+temp]==1 || planszagry[i+1+temp][j+1+temp]==2 || planszagry[i+1+temp][j+1+temp]==12)
                                 break;
-                            if ((planszagry[i+1+tmp][j+1+tmp]==1 || planszagry[i+1+tmp][j+1+tmp]==11 || planszagry[i+1+tmp][j+1+tmp]==-1 || planszagry[i+1+tmp][j+1+tmp]==-11) && zbite_pionki[i+1+tmp][j+1+tmp]==0) {
-                             if (planszagry[i+2+tmp][j+2+tmp]==0)
+                            if ((planszagry[i+1+temp][j+1+temp]==1 || planszagry[i+1+temp][j+1+temp]==11 || planszagry[i+1+temp][j+1+temp]==-1 || planszagry[i+1+temp][j+1+temp]==-11) && zbite_pionki[i+1+temp][j+1+temp]==0) {
+                             if (planszagry[i+2+temp][j+2+temp]==0)
                                 MRpionek[i-2][j-2] = 1;
                              break;
                             }
                         }
-                        for (tmp=0; tmp<7; tmp++) {
-                            if (zbite_pionki[i-1-tmp][j-1-tmp]==1 || planszagry[i-1-tmp][j-1-tmp]==2 || planszagry[i-1-tmp][j-1-tmp]==12)
+                        for (temp=0; temp<7; temp++) {
+                            if (zbite_pionki[i-1-temp][j-1-temp]==1 || planszagry[i-1-temp][j-1-temp]==2 || planszagry[i-1-temp][j-1-temp]==12)
                                 break;
-                            if ((planszagry[i-1-tmp][j-1-tmp]==1 || planszagry[i-1-tmp][j-1-tmp]==11 || planszagry[i-1-tmp][j-1-tmp]==-1 || planszagry[i-1-tmp][j-1-tmp]==-11) && zbite_pionki[i-1-tmp][j-1-tmp]==0) {
-                             if (planszagry[i-2-tmp][j-2-tmp]==0)
+                            if ((planszagry[i-1-temp][j-1-temp]==1 || planszagry[i-1-temp][j-1-temp]==11 || planszagry[i-1-temp][j-1-temp]==-1 || planszagry[i-1-temp][j-1-temp]==-11) && zbite_pionki[i-1-temp][j-1-temp]==0) {
+                             if (planszagry[i-2-temp][j-2-temp]==0)
                                 MRpionek[i-2][j-2] = 1;
                              break;
                             }
                         }
-                        for (tmp=0; tmp<7; tmp++) {
-                            if (zbite_pionki[i-1-tmp][j+1+tmp]==1 || planszagry[i-1-tmp][j+1+tmp]==2 || planszagry[i-1-tmp][j+1+tmp]==12)
+                        for (temp=0; temp<7; temp++) {
+                            if (zbite_pionki[i-1-temp][j+1+temp]==1 || planszagry[i-1-temp][j+1+temp]==2 || planszagry[i-1-temp][j+1+temp]==12)
                                 break;
-                            if ((planszagry[i-1-tmp][j+1+tmp]==1 || planszagry[i-1-tmp][j+1+tmp]==11 || planszagry[i-1-tmp][j+1+tmp]==-1 || planszagry[i-1-tmp][j+1+tmp]==-11) && zbite_pionki[i-1-tmp][j+1+tmp]==0) {
-                             if (planszagry[i-2-tmp][j+2+tmp]==0)
+                            if ((planszagry[i-1-temp][j+1+temp]==1 || planszagry[i-1-temp][j+1+temp]==11 || planszagry[i-1-temp][j+1+temp]==-1 || planszagry[i-1-temp][j+1+temp]==-11) && zbite_pionki[i-1-temp][j+1+temp]==0) {
+                             if (planszagry[i-2-temp][j+2+temp]==0)
                                 MRpionek[i-2][j-2] = 1;
                              break;
                             }
@@ -454,37 +398,37 @@ void Gra::sprawdzMBpole(int x, int y, int pionek) {
 
     switch(pionek){
     case 1: {
-            if (plansza[x-2][y-2]==0 && (plansza[x-1][y-1]==2 || plansza[x-1][y-1]==12) && zbite[x-1][y-1]==0) {
+            if (planszagry[x-2][y-2]==0 && (planszagry[x-1][y-1]==2 || planszagry[x-1][y-1]==12) && zbite_pionki[x-1][y-1]==0) {
                 MRpole[x-4][y-4] = 1;
                 MRpole[x-3][y-3] = 2;
             }
-            if (plansza[x-2][y+2]==0 && (plansza[x-1][y+1]==2 || plansza[x-1][y+1]==12) && zbite[x-1][y+1]==0) {
+            if (planszagry[x-2][y+2]==0 && (planszagry[x-1][y+1]==2 || planszagry[x-1][y+1]==12) && zbite_pionki[x-1][y+1]==0) {
                 MRpole[x-4][y] = 1;
                 MRpole[x-3][y-1] = 2;
             }
-            if (plansza[x+2][y-2]==0 && (plansza[x+1][y-1]==2 || plansza[x+1][y-1]==12) && zbite[x+1][y-1]==0) {
+            if (planszagry[x+2][y-2]==0 && (planszagry[x+1][y-1]==2 || planszagry[x+1][y-1]==12) && zbite_pionki[x+1][y-1]==0) {
                 MRpole[x][y-4] = 1;
                 MRpole[x-1][y-3] = 2;
             }
-            if (plansza[x+2][y+2]==0 && (plansza[x+1][y+1]==2 || plansza[x+1][y+1]==12) && zbite[x+1][y+1]==0) {
+            if (planszagry[x+2][y+2]==0 && (planszagry[x+1][y+1]==2 || planszagry[x+1][y+1]==12) && zbite_pionki[x+1][y+1]==0) {
                 MRpole[x][y] = 1;
                 MRpole[x-1][y-1] = 2;
             }
         } break;
     case 2: {
-            if (plansza[x-2][y-2]==0 && (plansza[x-1][y-1]==1 || plansza[x-1][y-1]==11) && zbite[x-1][y-1]==0) {
+            if (planszagry[x-2][y-2]==0 && (planszagry[x-1][y-1]==1 || planszagry[x-1][y-1]==11) && zbite_pionki[x-1][y-1]==0) {
                 MRpole[x-4][y-4] = 1;
                 MRpole[x-3][y-3] = 2;
             }
-            if (plansza[x-2][y+2]==0 && (plansza[x-1][y+1]==1 || plansza[x-1][y+1]==11) && zbite[x-1][y+1]==0) {
+            if (planszagry[x-2][y+2]==0 && (planszagry[x-1][y+1]==1 || planszagry[x-1][y+1]==11) && zbite_pionki[x-1][y+1]==0) {
                 MRpole[x-4][y] = 1;
                 MRpole[x-3][y-1] = 2;
             }
-            if (plansza[x+2][y-2]==0 && (plansza[x+1][y-1]==1 || plansza[x+1][y-1]==11) && zbite[x+1][y-1]==0) {
+            if (planszagry[x+2][y-2]==0 && (planszagry[x+1][y-1]==1 || planszagry[x+1][y-1]==11) && zbite_pionki[x+1][y-1]==0) {
                 MRpole[x][y-4] = 1;
                 MRpole[x-1][y-3] = 2;
             }
-            if (plansza[x+2][y+2]==0 && (plansza[x+1][y+1]==1 || plansza[x+1][y+1]==11) && zbite[x+1][y+1]==0) {
+            if (planszagry[x+2][y+2]==0 && (planszagry[x+1][y+1]==1 || planszagry[x+1][y+1]==11) && zbite_pionki[x+1][y+1]==0) {
                 MRpole[x][y] = 1;
                 MRpole[x-1][y-1] = 2;
             }
@@ -492,92 +436,92 @@ void Gra::sprawdzMBpole(int x, int y, int pionek) {
 
 
     case 11: {
-            for (tmp=0; tmp<7; tmp++){
-                if (zbite[x+1+tmp][y-1-tmp]==1 || plansza[x+1+tmp][y-1-tmp]==1 || plansza[x+1+tmp][y-1-tmp]==11)
+            for (temp=0; temp<7; temp++){
+                if (zbite_pionki[x+1+temp][y-1-temp]==1 || planszagry[x+1+temp][y-1-temp]==1 || planszagry[x+1+temp][y-1-temp]==11)
                     break;
-                if ((plansza[x+1+tmp][y-1-tmp]==2 || plansza[x+1+tmp][y-1-tmp]==12) && zbite[x+1+tmp][y-1-tmp]==0) {
-                   if (plansza[x+2+tmp][y-2-tmp]==0) {
-                        MRpole[x+tmp][y-4-tmp] = 1;
-                        MRpole[x-1+tmp][y-3-tmp] = 2;
+                if ((planszagry[x+1+temp][y-1-temp]==2 || planszagry[x+1+temp][y-1-temp]==12) && zbite_pionki[x+1+temp][y-1-temp]==0) {
+                   if (planszagry[x+2+temp][y-2-temp]==0) {
+                        MRpole[x+temp][y-4-temp] = 1;
+                        MRpole[x-1+temp][y-3-temp] = 2;
                    }
                    break;
                 }
             }
-            for (tmp=0; tmp<7; tmp++){
-                if (zbite[x+1+tmp][y+1+tmp]==1 || plansza[x+1+tmp][y+1+tmp]==1 || plansza[x+1+tmp][y+1+tmp]==11)
+            for (temp=0; temp<7; temp++){
+                if (zbite_pionki[x+1+temp][y+1+temp]==1 || planszagry[x+1+temp][y+1+temp]==1 || planszagry[x+1+temp][y+1+temp]==11)
                     break;
-                if ((plansza[x+1+tmp][y+1+tmp]==2 || plansza[x+1+tmp][y+1+tmp]==12) && zbite[x+1+tmp][y+1+tmp]==0) {
-                    if (plansza[x+2+tmp][y+2+tmp]==0) {
-                        MRpole[x+tmp][y+tmp] = 1;
-                        MRpole[x-1+tmp][y-1+tmp] = 2;
+                if ((planszagry[x+1+temp][y+1+temp]==2 || planszagry[x+1+temp][y+1+temp]==12) && zbite_pionki[x+1+temp][y+1+temp]==0) {
+                    if (planszagry[x+2+temp][y+2+temp]==0) {
+                        MRpole[x+temp][y+temp] = 1;
+                        MRpole[x-1+temp][y-1+temp] = 2;
                     }
                     break;
                 }
             }
-            for (tmp=0; tmp<7; tmp++){
-                if (zbite[x-1-tmp][y-1-tmp]==1 || plansza[x-1-tmp][y-1-tmp]==1 || plansza[x-1-tmp][y-1-tmp]==11)
+            for (temp=0; temp<7; temp++){
+                if (zbite_pionki[x-1-temp][y-1-temp]==1 || planszagry[x-1-temp][y-1-temp]==1 || planszagry[x-1-temp][y-1-temp]==11)
                     break;
-                if ((plansza[x-1-tmp][y-1-tmp]==2 || plansza[x-1-tmp][y-1-tmp]==12) && zbite[x-1-tmp][y-1-tmp]==0) {
-                    if (plansza[x-2-tmp][y-2-tmp]==0) {
-                        MRpole[x-4-tmp][y-4-tmp] = 1;
-                        MRpole[x-3-tmp][y-3-tmp] = 2;
+                if ((planszagry[x-1-temp][y-1-temp]==2 || planszagry[x-1-temp][y-1-temp]==12) && zbite_pionki[x-1-temp][y-1-temp]==0) {
+                    if (planszagry[x-2-temp][y-2-temp]==0) {
+                        MRpole[x-4-temp][y-4-temp] = 1;
+                        MRpole[x-3-temp][y-3-temp] = 2;
                     }
                     break;
                 }
             }
-            for (tmp=0; tmp<7; tmp++){
-                if (zbite[x-1-tmp][y+1+tmp]==1 || plansza[x-1-tmp][y+1+tmp]==1 || plansza[x-1-tmp][y+1+tmp]==11)
+            for (temp=0; temp<7; temp++){
+                if (zbite_pionki[x-1-temp][y+1+temp]==1 || planszagry[x-1-temp][y+1+temp]==1 || planszagry[x-1-temp][y+1+temp]==11)
                     break;
-                if ((plansza[x-1-tmp][y+1+tmp]==2 || plansza[x-1-tmp][y+1+tmp]==12) && zbite[x-1-tmp][y+1+tmp]==0) {
-                    if (plansza[x-2-tmp][y+2+tmp]==0) {
-                        MRpole[x-4-tmp][y+tmp] = 1;
-                        MRpole[x-3-tmp][y-1+tmp] = 2;
+                if ((planszagry[x-1-temp][y+1+temp]==2 || planszagry[x-1-temp][y+1+temp]==12) && zbite_pionki[x-1-temp][y+1+temp]==0) {
+                    if (planszagry[x-2-temp][y+2+temp]==0) {
+                        MRpole[x-4-temp][y+temp] = 1;
+                        MRpole[x-3-temp][y-1+temp] = 2;
                     }
                     break;
                 }
             }
         } break;
     case 12: {
-            for (tmp=0; tmp<7; tmp++){
-                if (zbite[x+1+tmp][y-1-tmp]==1 || plansza[x+1+tmp][y-1-tmp]==2 || plansza[x+1+tmp][y-1-tmp]==12)
+            for (temp=0; temp<7; temp++){
+                if (zbite_pionki[x+1+temp][y-1-temp]==1 || planszagry[x+1+temp][y-1-temp]==2 || planszagry[x+1+temp][y-1-temp]==12)
                     break;
-                if ((plansza[x+1+tmp][y-1-tmp]==1 || plansza[x+1+tmp][y-1-tmp]==11) && zbite[x+1+tmp][y-1-tmp]==0) {
-                   if (plansza[x+2+tmp][y-2-tmp]==0) {
-                        MRpole[x+tmp][y-4-tmp] = 1;
-                        MRpole[x-1+tmp][y-3-tmp] = 2;
+                if ((planszagry[x+1+temp][y-1-temp]==1 || planszagry[x+1+temp][y-1-temp]==11) && zbite_pionki[x+1+temp][y-1-temp]==0) {
+                   if (planszagry[x+2+temp][y-2-temp]==0) {
+                        MRpole[x+temp][y-4-temp] = 1;
+                        MRpole[x-1+temp][y-3-temp] = 2;
                    }
                    break;
                 }
             }
-            for (tmp=0; tmp<7; tmp++){
-                if (zbite[x+1+tmp][y+1+tmp]==1 || plansza[x+1+tmp][y+1+tmp]==2 || plansza[x+1+tmp][y+1+tmp]==12)
+            for (temp=0; temp<7; temp++){
+                if (zbite_pionki[x+1+temp][y+1+temp]==1 || planszagry[x+1+temp][y+1+temp]==2 || planszagry[x+1+temp][y+1+temp]==12)
                     break;
-                if ((plansza[x+1+tmp][y+1+tmp]==1 || plansza[x+1+tmp][y+1+tmp]==11) && zbite[x+1+tmp][y+1+tmp]==0) {
-                    if (plansza[x+2+tmp][y+2+tmp]==0) {
-                        MRpole[x+tmp][y+tmp] = 1;
-                        MRpole[x-1+tmp][y-1+tmp] = 2;
+                if ((planszagry[x+1+temp][y+1+temp]==1 || planszagry[x+1+temp][y+1+temp]==11) && zbite_pionki[x+1+temp][y+1+temp]==0) {
+                    if (planszagry[x+2+temp][y+2+temp]==0) {
+                        MRpole[x+temp][y+temp] = 1;
+                        MRpole[x-1+temp][y-1+temp] = 2;
                     }
                     break;
                 }
             }
-            for (tmp=0; tmp<7; tmp++){
-                if (zbite[x-1-tmp][y-1-tmp]==1 || plansza[x-1-tmp][y-1-tmp]==2 || plansza[x-1-tmp][y-1-tmp]==12)
+            for (temp=0; temp<7; temp++){
+                if (zbite_pionki[x-1-temp][y-1-temp]==1 || planszagry[x-1-temp][y-1-temp]==2 || planszagry[x-1-temp][y-1-temp]==12)
                     break;
-                if ((plansza[x-1-tmp][y-1-tmp]==1 || plansza[x-1-tmp][y-1-tmp]==11) && zbite[x-1-tmp][y-1-tmp]==0) {
-                    if (plansza[x-2-tmp][y-2-tmp]==0) {
-                        MRpole[x-4-tmp][y-4-tmp] = 1;
-                        MRpole[x-3-tmp][y-3-tmp] = 2;
+                if ((planszagry[x-1-temp][y-1-temp]==1 || planszagry[x-1-temp][y-1-temp]==11) && zbite_pionki[x-1-temp][y-1-temp]==0) {
+                    if (planszagry[x-2-temp][y-2-temp]==0) {
+                        MRpole[x-4-temp][y-4-temp] = 1;
+                        MRpole[x-3-temp][y-3-temp] = 2;
                     }
                     break;
                 }
             }
-            for (tmp=0; tmp<7; tmp++){
-                if (zbite[x-1-tmp][y+1+tmp]==1 || plansza[x-1-tmp][y+1+tmp]==2 || plansza[x-1-tmp][y+1+tmp]==12)
+            for (temp=0; temp<7; temp++){
+                if (zbite_pionki[x-1-temp][y+1+temp]==1 || planszagry[x-1-temp][y+1+temp]==2 || planszagry[x-1-temp][y+1+temp]==12)
                     break;
-                if ((plansza[x-1-tmp][y+1+tmp]==1 || plansza[x-1-tmp][y+1+tmp]==11) && zbite[x-1-tmp][y+1+tmp]==0) {
-                    if (plansza[x-2-tmp][y+2+tmp]==0) {
-                        MRpole[x-4-tmp][y+tmp] = 1;
-                        MRpole[x-3-tmp][y-1+tmp] = 2;
+                if ((planszagry[x-1-temp][y+1+temp]==1 || planszagry[x-1-temp][y+1+temp]==11) && zbite_pionki[x-1-temp][y+1+temp]==0) {
+                    if (planszagry[x-2-temp][y+2+temp]==0) {
+                        MRpole[x-4-temp][y+temp] = 1;
+                        MRpole[x-3-temp][y-1+temp] = 2;
                     }
                     break;
                 }
@@ -606,7 +550,7 @@ void Gra::mousePressEvent(QMouseEvent *event){
                     {
                         if(nast_zbijanie==0)
                             {
-                            zerujZbite();
+                            wyzerujzbite();
                             sprawdzMBpionek(1);
                             zbijanie = 0;
                             for (i=0; i<8; i++)
@@ -629,7 +573,7 @@ void Gra::mousePressEvent(QMouseEvent *event){
                             planszagry[poz_x+2][poz_y+2] = -planszagry[poz_x+2][poz_y+2];
 
                             if(zbijanie==0)
-                                sprawdzMRpole(poz_x+2, poz_y+2, -planszagry[poz_x+2][poz_y+2]);
+                                sprawdzMBpole(poz_x+2, poz_y+2, -planszagry[poz_x+2][poz_y+2]);
                             else
                                 sprawdzMBpole(poz_x+2, poz_y+2, -planszagry[poz_x+2][poz_y+2]);
                             }
@@ -656,7 +600,7 @@ void Gra::mousePressEvent(QMouseEvent *event){
                                         zbite_pionki[poz_x+1][poz_y+3] = 1;
                                     }
 
-                                if(zbijane>0)
+                                if(zbijanie>0)
                                     {
                                     nast_zbijanie = 0;
                                     sprawdzMBpole(poz_x+2, poz_y+2, planszagry[poz_x+2][poz_y+2]);
@@ -669,7 +613,7 @@ void Gra::mousePressEvent(QMouseEvent *event){
                                             }
                                     }
 
-                                if(nast_zbijanie->0)
+                                if(nast_zbijanie>0)
                                     planszagry[poz_x+2][poz_y+2] = -planszagry[poz_x+2][poz_y+2];
 
                                 if(nast_zbijanie>0)
@@ -720,8 +664,8 @@ void Gra::mousePressEvent(QMouseEvent *event){
 
                             planszagry[poz_x+2][poz_y+2] = -planszagry[poz_x+2][poz_y+2];
 
-                            if(bicie==0)
-                                sprawdzMRpole(poz_x+2, poz_y+2, -planszagry[poz_x+2][poz_y+2]);
+                            if(zbijanie==0)
+                                sprawdzMBpole(poz_x+2, poz_y+2, -planszagry[poz_x+2][poz_y+2]);
                             else
                                 sprawdzMBpole(poz_x+2, poz_y+2, -planszagry[poz_x+2][poz_y+2]);
                             }
@@ -768,14 +712,14 @@ void Gra::mousePressEvent(QMouseEvent *event){
                                 etap = 2;
                             else
                                 {
-                                zerujMRpole();
+                                wyzerujMRpole();
 
                                 if(poz_x==7)
                                     planszagry[poz_x+2][poz_y+2] = 12;
 
                                 for (i=2; i<10; i++)
                                     for (j=2; j<10; j++)
-                                        if(zbite[i][j]==1)
+                                        if(zbite_pionki[i][j]==1)
                                             planszagry[i][j] = 0;
 
                                 nast_zbijanie = 0;
@@ -790,7 +734,7 @@ void Gra::mousePressEvent(QMouseEvent *event){
             emit saveOff();
         else
             if(etap!=0)
-                emit zapisz();
+                emit saveOn();
 
         if(etap==2)
             {
@@ -846,27 +790,27 @@ void Gra::mousePressEvent(QMouseEvent *event){
 
 
         if (etap<0)
-            zerujMRpole();
+            wyzerujMRpole();
 
         if(etap==1)
-            emit zmianaEtap("<br>TERAZ<br><b>BIALYCH<br></b>");
+            emit zmianaetapu("<br>TERAZ<br><b>BIALYCH<br></b>");
         if(etap==2)
-            emit zmianaEtap("<br>TERAZ<br><b>CZARNYCH<br></b>");
+            emit zmianaetapu("<br>TERAZ<br><b>CZARNYCH<br></b>");
         if(etap==-1)
             {
-            emit zmianaEtap("<br>WYGRANA<br><b>BIALYCH<br></b>");
+            emit zmianaetapu("<br>WYGRANA<br><b>BIALYCH<br></b>");
             emit saveOff();
             }
         if(etap==-2)
             {
-            emit zmianaEtap("<br>WYGRANA<br><b>CZARNYCH<br></b>");
+            emit zmianaetapu("<br>WYGRANA<br><b>CZARNYCH<br></b>");
             emit saveOff();
             }
 
         repaint();
     }
 }
-<<<<<<< HEAD
+//<<<<<<< HEAD
 // FUNKCJA KINGI mousePressEvent
 
 void Gra::paintEvent(QPaintEvent*) {
@@ -899,7 +843,7 @@ void Gra::paintEvent(QPaintEvent*) {
                 rysownik.drawRect(x, y, szerPola, wysPola);
             }
 
-            switch(plansza[i+2][j+2]) {
+            switch(planszagry[i+2][j+2]) {
             case 1: {
                     rysownik.setBrush(QBrush(Qt::white));
                     rysownik.drawEllipse(x+7, y+7, szerPola-14, wysPola-14);
@@ -955,6 +899,7 @@ void Gra::paintEvent(QPaintEvent*) {
         y=y+wysPola;
   }
 }
-=======
->>>>>>> 8456af2c33280d3291565588da469acf3e3336f1
+
+//=======
+//>>>>>>> 8456af2c33280d3291565588da469acf3e3336f1
 

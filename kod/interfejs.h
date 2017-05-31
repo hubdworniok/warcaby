@@ -1,12 +1,21 @@
 #pragma once
+
+#include <QBoxLayout>
+#include <QLabel>
+#include <QMouseEvent>
+#include <QPainter>
+#include <QPushButton>
+#include <QWidget>
+
+#include <fstream>
 #include <iostream>
-#include <stdlib>
+
+#include "gra.h"
 
 using namespace std;
 
 
-class Interfejs : public QWidget
-{
+class Interfejs : public QWidget {
   Q_OBJECT
   public:
         Interfejs();
@@ -15,7 +24,7 @@ class Interfejs : public QWidget
         void Zapisz();
         void Niezapisuj();
   private:
-        Gra *game;
+        Gra *gra;
 
         QPushButton *pbNOWA_GRA;
         QPushButton *pbZAPISZ;
