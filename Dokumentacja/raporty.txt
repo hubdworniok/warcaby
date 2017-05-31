@@ -114,7 +114,7 @@ Planowanie pracy na kolejny sprint, analiza postępu, ocena czy założenia pier
 2017-05-30 - Dzień 21
 [MA]-Napisanie metody sprawdzającej pionek. Weryfikacja kodu i jego konsolidacja.
 [AD]-Wspólna praca nad finalizacją projektu, prezentacją, poprawki w kodzie.
-[FG]-
+[FG]-Uzupełnienie sprawozdań, poprawki w kodzie.
 [KT]-
 
 2017-05-31 - Dzień 22
