@@ -6,20 +6,20 @@ Interfejs::Interfejs() {
     gra = new Gra();
 
     setWindowTitle("Witaj w grze warcaby!");
-    setFixedSize(572,492);
+    setFixedSize(600,500);
 
     pbNOWA_GRA = new QPushButton(tr("&NOWA GRA"), this);
     pbZAPISZ = new QPushButton(tr("&ZAPISZ GRE"), this);
     pbZAPISZ->setDisabled(true);
-    connect(gra, SIGNAL(saveOn()), this, SLOT(FsaveOn()));
-    connect(gra, SIGNAL(saveOff()), this, SLOT(FsaveOff()));
+    connect(gra, SIGNAL(saveOn()), this, SLOT(Zapisz()));
+    connect(gra, SIGNAL(saveOff()), this, SLOT(Niezapisuj()));
 
     pbWCZYTAJ = new QPushButton(tr("&WCZYTAJ GRE"), this);
 
     pbKONIEC_GRY = new QPushButton(tr("&KONIEC"), this);
 
         infoLabel = new QLabel(tr("<br>ROZPOCZNIJ<br><b>NOWA GRE</b><br>"));
-        infoLabel->setFrameStyle(QFrame::WinPanel | QFrame::Raised/*Sunken*/);
+        infoLabel->setFrameStyle(QFrame::StyledPanel | QFrame::Raised/*Sunken*/);
         infoLabel->setAlignment(Qt::AlignCenter);
         connect(gra, SIGNAL(zmianaetapu(QString)), infoLabel, SLOT(setText(QString)));
 
@@ -31,7 +31,9 @@ Interfejs::Interfejs() {
         lPrzyciski->addWidget(infoLabel);
         lPrzyciski->addStretch(1);
         lPrzyciski->addWidget(pbZAPISZ);
+        lPrzyciski->addStretch(1);
         lPrzyciski->addWidget(pbWCZYTAJ);
+        lPrzyciski->addStretch(1);
         lPrzyciski->addWidget(pbKONIEC_GRY);
         lPrzyciski->addStretch(10);
 
