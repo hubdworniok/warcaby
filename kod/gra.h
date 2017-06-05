@@ -16,7 +16,8 @@
 
 using namespace std;
 
-class Gra : public QWidget {
+class Gra : public QWidget
+{
 
         Q_OBJECT;
 
@@ -24,10 +25,10 @@ class Gra : public QWidget {
                 Gra();
                 ~Gra();
 
-                void wyzerujplansze();
-                void wyzerujzbite();
                 void wyzerujMRpionek();
                 void wyzerujMRpole();
+                void wyzerujplansze();
+                void wyzerujzbite();
 
                 void sprawdzMRpionek(int kolor);
                 void sprawdzMBpionek(int kolor);

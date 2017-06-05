@@ -4,7 +4,8 @@
 
 using namespace std;
 
-Gra::Gra(){
+Gra::Gra()
+{
 
     wyzerujplansze();
     wyzerujzbite();
@@ -20,7 +21,24 @@ Gra::Gra(){
 }
 Gra::~Gra() {}
 
-void Gra::wyzerujplansze() {
+void Gra::wyzerujMRpionek()
+{
+
+    for (i=0; i<8; i++)
+        for (j=0; j<8; j++)
+            MRpionek[i][j] = 0;
+}
+
+void Gra::wyzerujMRpole()
+{
+
+    for (i=0; i<8; i++)
+        for (j=0; j<8; j++)
+            MRpole[i][j] = 0;
+}
+
+void Gra::wyzerujplansze()
+{
 
     for (i=0; i<12; i++)
         for (j=0; j<12; j++)
@@ -30,28 +48,16 @@ void Gra::wyzerujplansze() {
             planszagry[i][j] = 0;*/
 }
 
-void Gra::wyzerujzbite() {
+void Gra::wyzerujzbite()
+{
 
     for (i=0; i<12; i++)
         for (j=0; j<12; j++)
             zbite_pionki[i][j] = 0;
 }
 
-void Gra::wyzerujMRpionek() {
-
-    for (i=0; i<8; i++)
-        for (j=0; j<8; j++)
-            MRpionek[i][j] = 0;
-}
-
-void Gra::wyzerujMRpole() {
-
-    for (i=0; i<8; i++)
-        for (j=0; j<8; j++)
-            MRpole[i][j] = 0;
-}
-
-void Gra::nowagra() {
+void Gra::nowagra()
+{
 
     wyzerujplansze();
 
@@ -77,23 +83,8 @@ void Gra::nowagra() {
     repaint();
 }
 
-void Gra::zapiszgra() {
-
-     ofstream fout("warcabyzapisz.sav");
-     for (i=2; i<10; i++)
-        for (j=2; j<10; j++) {
-            if (planszagry[i][j]>0)
-                fout << planszagry[i][j] << endl;
-            else
-                fout << -planszagry[i][j] << endl;
-            }
-
-     fout << etap;
-     fout <<nast_zbijanie;
-     fout.close();
-}
-
-void Gra::wczytajgre() {
+void Gra::wczytajgre()
+{
 
     wyzerujplansze();
 
@@ -119,8 +110,27 @@ void Gra::wczytajgre() {
         repaint();
     }
 }
+void Gra::zapiszgra()
+{
 
-void Gra::sprawdzMRpionek(int kol) {
+     ofstream fout("warcabyzapisz.sav");
+     for (i=2; i<10; i++)
+        for (j=2; j<10; j++) {
+            if (planszagry[i][j]>0)
+                fout << planszagry[i][j] << endl;
+            else
+                fout << -planszagry[i][j] << endl;
+            }
+
+     fout << etap;
+     fout <<nast_zbijanie;
+     fout.close();
+}
+
+
+
+void Gra::sprawdzMRpionek(int kol)
+{
 
     wyzerujMRpionek();
 
@@ -172,15 +182,20 @@ void Gra::sprawdzMRpionek(int kol) {
     }
 }
 
-void Gra::sprawdzMBpionek(int kol) {
+void Gra::sprawdzMBpionek(int kol)
+{
 
     wyzerujMRpionek();
 
     for (i=2; i<10; i++)
-    for (j=2; j<10; j++){
-        switch(planszagry[i][j]){
-            case 1: {
-                if (kol==1) {
+    for (j=2; j<10; j++)
+        {
+        switch(planszagry[i][j])
+        {
+            case 1:
+                {
+                if (kol==1)
+                {
                     if (planszagry[i-2][j-2]==0 && (planszagry[i-1][j-1]==2 || planszagry[i-1][j-1]==12 || planszagry[i-1][j-1]==-2 || planszagry[i-1][j-1]==-12) && zbite_pionki[i-1][j-1]==0)
                         MRpionek[i-2][j-2] = 1;
                     if (planszagry[i-2][j+2]==0 && (planszagry[i-1][j+1]==2 || planszagry[i-1][j+1]==12 || planszagry[i-1][j+1]==-2 || planszagry[i-1][j+1]==-12) && zbite_pionki[i-1][j+1]==0)
@@ -191,8 +206,10 @@ void Gra::sprawdzMBpionek(int kol) {
                         MRpionek[i-2][j-2] = 1;
                 }
             } break;
-            case -1: {
-                if (kol==1) {
+            case -1:
+                {
+                if (kol==1)
+                {
                     if (planszagry[i-2][j-2]==0 && (planszagry[i-1][j-1]==2 || planszagry[i-1][j-1]==12 || planszagry[i-1][j-1]==-2 || planszagry[i-1][j-1]==-12) && zbite_pionki[i-1][j-1]==0)
                         MRpionek[i-2][j-2] = 1;
                     if (planszagry[i-2][j+2]==0 && (planszagry[i-1][j+1]==2 || planszagry[i-1][j+1]==12 || planszagry[i-1][j+1]==-2 || planszagry[i-1][j+1]==-12) && zbite_pionki[i-1][j+1]==0)
@@ -203,8 +220,10 @@ void Gra::sprawdzMBpionek(int kol) {
                         MRpionek[i-2][j-2] = 1;
                 }
             } break;
-            case 2: {
-                if (kol==2) {
+            case 2:
+                {
+                if (kol==2)
+                {
                     if (planszagry[i-2][j-2]==0 && (planszagry[i-1][j-1]==1 || planszagry[i-1][j-1]==11 || planszagry[i-1][j-1]==-1 || planszagry[i-1][j-1]==-11) && zbite_pionki[i-1][j-1]==0)
                         MRpionek[i-2][j-2] = 1;
                     if (planszagry[i-2][j+2]==0 && (planszagry[i-1][j+1]==1 || planszagry[i-1][j+1]==11 || planszagry[i-1][j+1]==-1 || planszagry[i-1][j+1]==-11) && zbite_pionki[i-1][j+1]==0)
@@ -215,8 +234,10 @@ void Gra::sprawdzMBpionek(int kol) {
                         MRpionek[i-2][j-2] = 1;
                 }
             } break;
-            case -2: {
-                if (kol==2) {
+            case -2:
+                {
+                if (kol==2)
+                {
                     if (planszagry[i-2][j-2]==0 && (planszagry[i-1][j-1]==1 || planszagry[i-1][j-1]==11 || planszagry[i-1][j-1]==-1 || planszagry[i-1][j-1]==-11) && zbite_pionki[i-1][j-1]==0)
                         MRpionek[i-2][j-2] = 1;
                     if (planszagry[i-2][j+2]==0 && (planszagry[i-1][j+1]==1 || planszagry[i-1][j+1]==11 || planszagry[i-1][j+1]==-1 || planszagry[i-1][j+1]==-11) && zbite_pionki[i-1][j+1]==0)
@@ -227,9 +248,12 @@ void Gra::sprawdzMBpionek(int kol) {
                         MRpionek[i-2][j-2] = 1;
                 }
             } break;
-            case 11: {
-                if (kol==1) {
-                    for (temp=0; temp<7; temp++) {
+            case 11:
+                {
+                if (kol==1)
+                {
+                    for (temp=0; temp<7; temp++)
+                    {
                         if (zbite_pionki[i+1+temp][j-1-temp]==1 || planszagry[i+1+temp][j-1-temp]==1 || planszagry[i+1+temp][j-1-temp]==11 || planszagry[i+1+temp][j-1-temp]==-1 || planszagry[i+1+temp][j-1-temp]==-11)
                             break;
                         if ((planszagry[i+1+temp][j-1-temp]==2 || planszagry[i+1+temp][j-1-temp]==12 || planszagry[i+1+temp][j-1-temp]==-2 || planszagry[i+1+temp][j-1-temp]==-12) && zbite_pionki[i+1+temp][j-1-temp]==0) {
@@ -238,7 +262,8 @@ void Gra::sprawdzMBpionek(int kol) {
                          break;
                         }
                     }
-                    for (temp=0; temp<7; temp++) {
+                    for (temp=0; temp<7; temp++)
+                    {
                         if (zbite_pionki[i+1+temp][j+1+temp]==1 || planszagry[i+1+temp][j+1+temp]==1 || planszagry[i+1+temp][j+1+temp]==11 || planszagry[i+1+temp][j-1-temp]==-1 || planszagry[i+1+temp][j-1-temp]==-11)
                             break;
                         if ((planszagry[i+1+temp][j+1+temp]==2 || planszagry[i+1+temp][j+1+temp]==12 || planszagry[i+1+temp][j+1+temp]==-2 || planszagry[i+1+temp][j+1+temp]==-12) && zbite_pionki[i+1+temp][j+1+temp]==0) {
@@ -247,7 +272,8 @@ void Gra::sprawdzMBpionek(int kol) {
                          break;
                         }
                     }
-                    for (temp=0; temp<7; temp++) {
+                    for (temp=0; temp<7; temp++)
+                    {
                         if (zbite_pionki[i-1-temp][j-1-temp]==1 || planszagry[i-1-temp][j-1-temp]==1 || planszagry[i-1-temp][j-1-temp]==11 || planszagry[i+1+temp][j-1-temp]==-1 || planszagry[i+1+temp][j-1-temp]==-11)
                             break;
                         if ((planszagry[i-1-temp][j-1-temp]==2 || planszagry[i-1-temp][j-1-temp]==12 || planszagry[i-1-temp][j-1-temp]==-2 || planszagry[i-1-temp][j-1-temp]==-12) && zbite_pionki[i-1-temp][j-1-temp]==0) {
@@ -256,7 +282,8 @@ void Gra::sprawdzMBpionek(int kol) {
                          break;
                         }
                     }
-                    for (temp=0; temp<7; temp++) {
+                    for (temp=0; temp<7; temp++)
+                    {
                         if (zbite_pionki[i-1-temp][j+1+temp]==1 || planszagry[i-1-temp][j+1+temp]==1 || planszagry[i-1-temp][j+1+temp]==11 || planszagry[i+1+temp][j-1-temp]==-1 || planszagry[i+1+temp][j-1-temp]==-11)
                             break;
                         if ((planszagry[i-1-temp][j+1+temp]==2 || planszagry[i-1-temp][j+1+temp]==12 || planszagry[i-1-temp][j+1+temp]==-2 || planszagry[i-1-temp][j+1+temp]==-12) && zbite_pionki[i-1-temp][j+1+temp]==0) {
@@ -267,9 +294,12 @@ void Gra::sprawdzMBpionek(int kol) {
                     }
                 }
             } break;
-            case -11: {
-                    if (kol==1) {
-                        for (temp=0; temp<7; temp++) {
+            case -11:
+                {
+                    if (kol==1)
+                    {
+                        for (temp=0; temp<7; temp++)
+                        {
                             if (zbite_pionki[i+1+temp][j-1-temp]==1 || planszagry[i+1+temp][j-1-temp]==1 || planszagry[i+1+temp][j-1-temp]==11)
                                 break;
                             if ((planszagry[i+1+temp][j-1-temp]==2 || planszagry[i+1+temp][j-1-temp]==12 || planszagry[i+1+temp][j-1-temp]==-2 || planszagry[i+1+temp][j-1-temp]==-12) && zbite_pionki[i+1+temp][j-1-temp]==0) {
@@ -278,7 +308,8 @@ void Gra::sprawdzMBpionek(int kol) {
                              break;
                             }
                         }
-                        for (temp=0; temp<7; temp++) {
+                        for (temp=0; temp<7; temp++)
+                        {
                             if (zbite_pionki[i+1+temp][j+1+temp]==1 || planszagry[i+1+temp][j+1+temp]==1 || planszagry[i+1+temp][j+1+temp]==11)
                                 break;
                             if ((planszagry[i+1+temp][j+1+temp]==2 || planszagry[i+1+temp][j+1+temp]==12 || planszagry[i+1+temp][j+1+temp]==-2 || planszagry[i+1+temp][j+1+temp]==-12) && zbite_pionki[i+1+temp][j+1+temp]==0) {
@@ -287,7 +318,8 @@ void Gra::sprawdzMBpionek(int kol) {
                              break;
                             }
                         }
-                        for (temp=0; temp<7; temp++) {
+                        for (temp=0; temp<7; temp++)
+                        {
                             if (zbite_pionki[i-1-temp][j-1-temp]==1 || planszagry[i-1-temp][j-1-temp]==1 || planszagry[i-1-temp][j-1-temp]==11)
                                 break;
                             if ((planszagry[i-1-temp][j-1-temp]==2 || planszagry[i-1-temp][j-1-temp]==12 || planszagry[i-1-temp][j-1-temp]==-2 || planszagry[i-1-temp][j-1-temp]==-12) && zbite_pionki[i-1-temp][j-1-temp]==0) {
@@ -296,7 +328,8 @@ void Gra::sprawdzMBpionek(int kol) {
                              break;
                             }
                         }
-                        for (temp=0; temp<7; temp++) {
+                        for (temp=0; temp<7; temp++)
+                        {
                             if (zbite_pionki[i-1-temp][j+1+temp]==1 || planszagry[i-1-temp][j+1+temp]==1 || planszagry[i-1-temp][j+1+temp]==11)
                                 break;
                             if ((planszagry[i-1-temp][j+1+temp]==2 || planszagry[i-1-temp][j+1+temp]==12 || planszagry[i-1-temp][j+1+temp]==-2 || planszagry[i-1-temp][j+1+temp]==-12) && zbite_pionki[i-1-temp][j+1+temp]==0) {
@@ -308,8 +341,10 @@ void Gra::sprawdzMBpionek(int kol) {
                     }
             } break;
             case 12: {
-                    if (kol==2) {
-                        for (temp=0; temp<7; temp++) {
+                    if (kol==2)
+                    {
+                        for (temp=0; temp<7; temp++)
+                        {
                             if (zbite_pionki[i+1+temp][j-1-temp]==1 || planszagry[i+1+temp][j-1-temp]==2 || planszagry[i+1+temp][j-1-temp]==12 || planszagry[i+1+temp][j-1-temp]==-2 || planszagry[i+1+temp][j-1-temp]==-12)
                                 break;
                             if ((planszagry[i+1+temp][j-1-temp]==1 || planszagry[i+1+temp][j-1-temp]==11 || planszagry[i+1+temp][j-1-temp]==-1 || planszagry[i+1+temp][j-1-temp]==-11) && zbite_pionki[i+1+temp][j-1-temp]==0) {
@@ -318,7 +353,8 @@ void Gra::sprawdzMBpionek(int kol) {
                              break;
                             }
                         }
-                        for (temp=0; temp<7; temp++) {
+                        for (temp=0; temp<7; temp++)
+                        {
                             if (zbite_pionki[i+1+temp][j+1+temp]==1 || planszagry[i+1+temp][j+1+temp]==2 || planszagry[i+1+temp][j+1+temp]==12 || planszagry[i+1+temp][j-1-temp]==-2 || planszagry[i+1+temp][j-1-temp]==-12)
                                 break;
                             if ((planszagry[i+1+temp][j+1+temp]==1 || planszagry[i+1+temp][j+1+temp]==11 || planszagry[i+1+temp][j+1+temp]==-1 || planszagry[i+1+temp][j+1+temp]==-11) && zbite_pionki[i+1+temp][j+1+temp]==0) {
@@ -327,7 +363,8 @@ void Gra::sprawdzMBpionek(int kol) {
                              break;
                             }
                         }
-                        for (temp=0; temp<7; temp++) {
+                        for (temp=0; temp<7; temp++)
+                        {
                             if (zbite_pionki[i-1-temp][j-1-temp]==1 || planszagry[i-1-temp][j-1-temp]==2 || planszagry[i-1-temp][j-1-temp]==12 || planszagry[i+1+temp][j-1-temp]==-2 || planszagry[i+1+temp][j-1-temp]==-12)
                                 break;
                             if ((planszagry[i-1-temp][j-1-temp]==1 || planszagry[i-1-temp][j-1-temp]==11 || planszagry[i-1-temp][j-1-temp]==-1 || planszagry[i-1-temp][j-1-temp]==-11) && zbite_pionki[i-1-temp][j-1-temp]==0) {
@@ -336,7 +373,8 @@ void Gra::sprawdzMBpionek(int kol) {
                              break;
                             }
                         }
-                        for (temp=0; temp<7; temp++) {
+                        for (temp=0; temp<7; temp++)
+                        {
                             if (zbite_pionki[i-1-temp][j+1+temp]==1 || planszagry[i-1-temp][j+1+temp]==2 || planszagry[i-1-temp][j+1+temp]==12 || planszagry[i+1+temp][j-1-temp]==-2 || planszagry[i+1+temp][j-1-temp]==-12)
                                 break;
                             if ((planszagry[i-1-temp][j+1+temp]==1 || planszagry[i-1-temp][j+1+temp]==11 || planszagry[i-1-temp][j+1+temp]==-1 || planszagry[i-1-temp][j+1+temp]==-11) && zbite_pionki[i-1-temp][j+1+temp]==0) {
@@ -347,9 +385,12 @@ void Gra::sprawdzMBpionek(int kol) {
                         }
                     }
             } break;
-            case -12: {
-                    if (kol==2) {
-                        for (temp=0; temp<7; temp++) {
+            case -12:
+                {
+                    if (kol==2)
+                    {
+                        for (temp=0; temp<7; temp++)
+                        {
                             if (zbite_pionki[i+1+temp][j-1-temp]==1 || planszagry[i+1+temp][j-1-temp]==2 || planszagry[i+1+temp][j-1-temp]==12)
                                 break;
                             if ((planszagry[i+1+temp][j-1-temp]==1 || planszagry[i+1+temp][j-1-temp]==11 || planszagry[i+1+temp][j-1-temp]==-1 || planszagry[i+1+temp][j-1-temp]==-11) && zbite_pionki[i+1+temp][j-1-temp]==0) {
@@ -358,7 +399,8 @@ void Gra::sprawdzMBpionek(int kol) {
                              break;
                             }
                         }
-                        for (temp=0; temp<7; temp++) {
+                        for (temp=0; temp<7; temp++)
+                        {
                             if (zbite_pionki[i+1+temp][j+1+temp]==1 || planszagry[i+1+temp][j+1+temp]==2 || planszagry[i+1+temp][j+1+temp]==12)
                                 break;
                             if ((planszagry[i+1+temp][j+1+temp]==1 || planszagry[i+1+temp][j+1+temp]==11 || planszagry[i+1+temp][j+1+temp]==-1 || planszagry[i+1+temp][j+1+temp]==-11) && zbite_pionki[i+1+temp][j+1+temp]==0) {
@@ -367,7 +409,8 @@ void Gra::sprawdzMBpionek(int kol) {
                              break;
                             }
                         }
-                        for (temp=0; temp<7; temp++) {
+                        for (temp=0; temp<7; temp++)
+                        {
                             if (zbite_pionki[i-1-temp][j-1-temp]==1 || planszagry[i-1-temp][j-1-temp]==2 || planszagry[i-1-temp][j-1-temp]==12)
                                 break;
                             if ((planszagry[i-1-temp][j-1-temp]==1 || planszagry[i-1-temp][j-1-temp]==11 || planszagry[i-1-temp][j-1-temp]==-1 || planszagry[i-1-temp][j-1-temp]==-11) && zbite_pionki[i-1-temp][j-1-temp]==0) {
@@ -376,7 +419,8 @@ void Gra::sprawdzMBpionek(int kol) {
                              break;
                             }
                         }
-                        for (temp=0; temp<7; temp++) {
+                        for (temp=0; temp<7; temp++)
+                        {
                             if (zbite_pionki[i-1-temp][j+1+temp]==1 || planszagry[i-1-temp][j+1+temp]==2 || planszagry[i-1-temp][j+1+temp]==12)
                                 break;
                             if ((planszagry[i-1-temp][j+1+temp]==1 || planszagry[i-1-temp][j+1+temp]==11 || planszagry[i-1-temp][j+1+temp]==-1 || planszagry[i-1-temp][j+1+temp]==-11) && zbite_pionki[i-1-temp][j+1+temp]==0) {
@@ -394,88 +438,113 @@ void Gra::sprawdzMBpionek(int kol) {
 
 //funkcja Filip - sprawdz pole MB//
 
-void Gra::sprawdzMBpole(int x, int y, int pionek) {
+void Gra::sprawdzMBpole(int x, int y, int pionek)
+{
 
     wyzerujMRpole();
 
-    switch(pionek){
-    case 1: {
-            if (planszagry[x-2][y-2]==0 && (planszagry[x-1][y-1]==2 || planszagry[x-1][y-1]==12) && zbite_pionki[x-1][y-1]==0) {
+    switch(pionek)
+    {
+    case 1:
+        {
+            if (planszagry[x-2][y-2]==0 && (planszagry[x-1][y-1]==2 || planszagry[x-1][y-1]==12) && zbite_pionki[x-1][y-1]==0)
+            {
                 MRpole[x-4][y-4] = 1;
                 MRpole[x-3][y-3] = 2;
             }
-            if (planszagry[x-2][y+2]==0 && (planszagry[x-1][y+1]==2 || planszagry[x-1][y+1]==12) && zbite_pionki[x-1][y+1]==0) {
+            if (planszagry[x-2][y+2]==0 && (planszagry[x-1][y+1]==2 || planszagry[x-1][y+1]==12) && zbite_pionki[x-1][y+1]==0)
+            {
                 MRpole[x-4][y] = 1;
                 MRpole[x-3][y-1] = 2;
             }
-            if (planszagry[x+2][y-2]==0 && (planszagry[x+1][y-1]==2 || planszagry[x+1][y-1]==12) && zbite_pionki[x+1][y-1]==0) {
+            if (planszagry[x+2][y-2]==0 && (planszagry[x+1][y-1]==2 || planszagry[x+1][y-1]==12) && zbite_pionki[x+1][y-1]==0)
+            {
                 MRpole[x][y-4] = 1;
                 MRpole[x-1][y-3] = 2;
             }
-            if (planszagry[x+2][y+2]==0 && (planszagry[x+1][y+1]==2 || planszagry[x+1][y+1]==12) && zbite_pionki[x+1][y+1]==0) {
+            if (planszagry[x+2][y+2]==0 && (planszagry[x+1][y+1]==2 || planszagry[x+1][y+1]==12) && zbite_pionki[x+1][y+1]==0)
+            {
                 MRpole[x][y] = 1;
                 MRpole[x-1][y-1] = 2;
             }
         } break;
-    case 2: {
-            if (planszagry[x-2][y-2]==0 && (planszagry[x-1][y-1]==1 || planszagry[x-1][y-1]==11) && zbite_pionki[x-1][y-1]==0) {
+    case 2:
+        {
+            if (planszagry[x-2][y-2]==0 && (planszagry[x-1][y-1]==1 || planszagry[x-1][y-1]==11) && zbite_pionki[x-1][y-1]==0)
+                {
                 MRpole[x-4][y-4] = 1;
                 MRpole[x-3][y-3] = 2;
             }
-            if (planszagry[x-2][y+2]==0 && (planszagry[x-1][y+1]==1 || planszagry[x-1][y+1]==11) && zbite_pionki[x-1][y+1]==0) {
+            if (planszagry[x-2][y+2]==0 && (planszagry[x-1][y+1]==1 || planszagry[x-1][y+1]==11) && zbite_pionki[x-1][y+1]==0)
+            {
                 MRpole[x-4][y] = 1;
                 MRpole[x-3][y-1] = 2;
             }
-            if (planszagry[x+2][y-2]==0 && (planszagry[x+1][y-1]==1 || planszagry[x+1][y-1]==11) && zbite_pionki[x+1][y-1]==0) {
+            if (planszagry[x+2][y-2]==0 && (planszagry[x+1][y-1]==1 || planszagry[x+1][y-1]==11) && zbite_pionki[x+1][y-1]==0)
+            {
                 MRpole[x][y-4] = 1;
                 MRpole[x-1][y-3] = 2;
             }
-            if (planszagry[x+2][y+2]==0 && (planszagry[x+1][y+1]==1 || planszagry[x+1][y+1]==11) && zbite_pionki[x+1][y+1]==0) {
+            if (planszagry[x+2][y+2]==0 && (planszagry[x+1][y+1]==1 || planszagry[x+1][y+1]==11) && zbite_pionki[x+1][y+1]==0)
+            {
                 MRpole[x][y] = 1;
                 MRpole[x-1][y-1] = 2;
             }
         } break;
 
 
-    case 11: {
-            for (temp=0; temp<7; temp++){
+    case 11:
+        {
+            for (temp=0; temp<7; temp++)
+                {
                 if (zbite_pionki[x+1+temp][y-1-temp]==1 || planszagry[x+1+temp][y-1-temp]==1 || planszagry[x+1+temp][y-1-temp]==11)
                     break;
-                if ((planszagry[x+1+temp][y-1-temp]==2 || planszagry[x+1+temp][y-1-temp]==12) && zbite_pionki[x+1+temp][y-1-temp]==0) {
-                   if (planszagry[x+2+temp][y-2-temp]==0) {
+                if ((planszagry[x+1+temp][y-1-temp]==2 || planszagry[x+1+temp][y-1-temp]==12) && zbite_pionki[x+1+temp][y-1-temp]==0)
+                {
+                   if (planszagry[x+2+temp][y-2-temp]==0)
+                   {
                         MRpole[x+temp][y-4-temp] = 1;
                         MRpole[x-1+temp][y-3-temp] = 2;
                    }
                    break;
                 }
             }
-            for (temp=0; temp<7; temp++){
+            for (temp=0; temp<7; temp++)
+            {
                 if (zbite_pionki[x+1+temp][y+1+temp]==1 || planszagry[x+1+temp][y+1+temp]==1 || planszagry[x+1+temp][y+1+temp]==11)
                     break;
-                if ((planszagry[x+1+temp][y+1+temp]==2 || planszagry[x+1+temp][y+1+temp]==12) && zbite_pionki[x+1+temp][y+1+temp]==0) {
-                    if (planszagry[x+2+temp][y+2+temp]==0) {
+                if ((planszagry[x+1+temp][y+1+temp]==2 || planszagry[x+1+temp][y+1+temp]==12) && zbite_pionki[x+1+temp][y+1+temp]==0)
+                {
+                    if (planszagry[x+2+temp][y+2+temp]==0)
+                    {
                         MRpole[x+temp][y+temp] = 1;
                         MRpole[x-1+temp][y-1+temp] = 2;
                     }
                     break;
                 }
             }
-            for (temp=0; temp<7; temp++){
+            for (temp=0; temp<7; temp++)
+            {
                 if (zbite_pionki[x-1-temp][y-1-temp]==1 || planszagry[x-1-temp][y-1-temp]==1 || planszagry[x-1-temp][y-1-temp]==11)
                     break;
-                if ((planszagry[x-1-temp][y-1-temp]==2 || planszagry[x-1-temp][y-1-temp]==12) && zbite_pionki[x-1-temp][y-1-temp]==0) {
-                    if (planszagry[x-2-temp][y-2-temp]==0) {
+                if ((planszagry[x-1-temp][y-1-temp]==2 || planszagry[x-1-temp][y-1-temp]==12) && zbite_pionki[x-1-temp][y-1-temp]==0)
+                {
+                    if (planszagry[x-2-temp][y-2-temp]==0)
+                    {
                         MRpole[x-4-temp][y-4-temp] = 1;
                         MRpole[x-3-temp][y-3-temp] = 2;
                     }
                     break;
                 }
             }
-            for (temp=0; temp<7; temp++){
+            for (temp=0; temp<7; temp++)
+            {
                 if (zbite_pionki[x-1-temp][y+1+temp]==1 || planszagry[x-1-temp][y+1+temp]==1 || planszagry[x-1-temp][y+1+temp]==11)
                     break;
-                if ((planszagry[x-1-temp][y+1+temp]==2 || planszagry[x-1-temp][y+1+temp]==12) && zbite_pionki[x-1-temp][y+1+temp]==0) {
-                    if (planszagry[x-2-temp][y+2+temp]==0) {
+                if ((planszagry[x-1-temp][y+1+temp]==2 || planszagry[x-1-temp][y+1+temp]==12) && zbite_pionki[x-1-temp][y+1+temp]==0)
+                {
+                    if (planszagry[x-2-temp][y+2+temp]==0)
+                    {
                         MRpole[x-4-temp][y+temp] = 1;
                         MRpole[x-3-temp][y-1+temp] = 2;
                     }
@@ -483,45 +552,58 @@ void Gra::sprawdzMBpole(int x, int y, int pionek) {
                 }
             }
         } break;
-    case 12: {
-            for (temp=0; temp<7; temp++){
+    case 12:
+        {
+            for (temp=0; temp<7; temp++)
+                {
                 if (zbite_pionki[x+1+temp][y-1-temp]==1 || planszagry[x+1+temp][y-1-temp]==2 || planszagry[x+1+temp][y-1-temp]==12)
                     break;
-                if ((planszagry[x+1+temp][y-1-temp]==1 || planszagry[x+1+temp][y-1-temp]==11) && zbite_pionki[x+1+temp][y-1-temp]==0) {
-                   if (planszagry[x+2+temp][y-2-temp]==0) {
+                if ((planszagry[x+1+temp][y-1-temp]==1 || planszagry[x+1+temp][y-1-temp]==11) && zbite_pionki[x+1+temp][y-1-temp]==0)
+                {
+                   if (planszagry[x+2+temp][y-2-temp]==0)
+                   {
                         MRpole[x+temp][y-4-temp] = 1;
                         MRpole[x-1+temp][y-3-temp] = 2;
                    }
                    break;
                 }
             }
-            for (temp=0; temp<7; temp++){
+            for (temp=0; temp<7; temp++)
+            {
                 if (zbite_pionki[x+1+temp][y+1+temp]==1 || planszagry[x+1+temp][y+1+temp]==2 || planszagry[x+1+temp][y+1+temp]==12)
                     break;
-                if ((planszagry[x+1+temp][y+1+temp]==1 || planszagry[x+1+temp][y+1+temp]==11) && zbite_pionki[x+1+temp][y+1+temp]==0) {
-                    if (planszagry[x+2+temp][y+2+temp]==0) {
+                if ((planszagry[x+1+temp][y+1+temp]==1 || planszagry[x+1+temp][y+1+temp]==11) && zbite_pionki[x+1+temp][y+1+temp]==0)
+                {
+                    if (planszagry[x+2+temp][y+2+temp]==0)
+                    {
                         MRpole[x+temp][y+temp] = 1;
                         MRpole[x-1+temp][y-1+temp] = 2;
                     }
                     break;
                 }
             }
-            for (temp=0; temp<7; temp++){
+            for (temp=0; temp<7; temp++)
+            {
                 if (zbite_pionki[x-1-temp][y-1-temp]==1 || planszagry[x-1-temp][y-1-temp]==2 || planszagry[x-1-temp][y-1-temp]==12)
                     break;
-                if ((planszagry[x-1-temp][y-1-temp]==1 || planszagry[x-1-temp][y-1-temp]==11) && zbite_pionki[x-1-temp][y-1-temp]==0) {
-                    if (planszagry[x-2-temp][y-2-temp]==0) {
+                if ((planszagry[x-1-temp][y-1-temp]==1 || planszagry[x-1-temp][y-1-temp]==11) && zbite_pionki[x-1-temp][y-1-temp]==0)
+                {
+                    if (planszagry[x-2-temp][y-2-temp]==0)
+                    {
                         MRpole[x-4-temp][y-4-temp] = 1;
                         MRpole[x-3-temp][y-3-temp] = 2;
                     }
                     break;
                 }
             }
-            for (temp=0; temp<7; temp++){
+            for (temp=0; temp<7; temp++)
+            {
                 if (zbite_pionki[x-1-temp][y+1+temp]==1 || planszagry[x-1-temp][y+1+temp]==2 || planszagry[x-1-temp][y+1+temp]==12)
                     break;
-                if ((planszagry[x-1-temp][y+1+temp]==1 || planszagry[x-1-temp][y+1+temp]==11) && zbite_pionki[x-1-temp][y+1+temp]==0) {
-                    if (planszagry[x-2-temp][y+2+temp]==0) {
+                if ((planszagry[x-1-temp][y+1+temp]==1 || planszagry[x-1-temp][y+1+temp]==11) && zbite_pionki[x-1-temp][y+1+temp]==0)
+                {
+                    if (planszagry[x-2-temp][y+2+temp]==0)
+                    {
                         MRpole[x-4-temp][y+temp] = 1;
                         MRpole[x-3-temp][y-1+temp] = 2;
                     }
@@ -533,13 +615,15 @@ void Gra::sprawdzMBpole(int x, int y, int pionek) {
     }
 }
 
-void Gra::mouseMoveEvent(QMouseEvent *event) {
+void Gra::mouseMoveEvent(QMouseEvent *event)
+{
     poz_x = event->y();
     poz_y = event->x();
     repaint();
 }
 
-void Gra::mousePressEvent(QMouseEvent *event){
+void Gra::mousePressEvent(QMouseEvent *event)
+{
     poz_x = this->poz_x/(this->width()/8);
     poz_y = this->poz_y/(this->height()/8);
 
@@ -813,9 +897,9 @@ void Gra::mousePressEvent(QMouseEvent *event){
     }
 }
 //<<<<<<< HEAD
-// FUNKCJA KINGI mousePressEvent
 
-void Gra::paintEvent(QPaintEvent*) {
+void Gra::paintEvent(QPaintEvent*)
+{
 
   int szerPola = this->width()/8;
   int wysPola = this->height()/8;
@@ -824,79 +908,51 @@ void Gra::paintEvent(QPaintEvent*) {
   int y = 0;
 
   QPainter rysownik(this);
-  for (int i=0 ; i<8 ; i++) {
+  for (int i=0 ; i<8 ; i++)
+    {
         x=0;
-        for (int j=0 ; j<8 ; j++) {
-            if((i%2==0 && j%2!=0) || (i%2!=0 && j%2==0)) {
+        for (int j=0 ; j<8 ; j++)
+        {
+            if((i%2==0 && j%2!=0) || (i%2!=0 && j%2==0))
+            {
                 rysownik.setBrush(QBrush(Qt::white));
                 rysownik.drawRect(x, y, szerPola, wysPola);
             }
-            else {
+            else
+            {
                 rysownik.setBrush(QBrush(Qt::black));
                 rysownik.drawRect(x, y, szerPola, wysPola);
             }
 
-            if (MRpole[i][j]==1) {
+            if (MRpole[i][j]==1)
+            {
                 rysownik.setBrush(QBrush(Qt::green));
                 rysownik.drawRect(x, y, szerPola, wysPola);
             }
-            if (MRpole[i][j]==2) {
+            if (MRpole[i][j]==2)
+            {
                 rysownik.setBrush(QBrush(Qt::red));
                 rysownik.drawRect(x, y, szerPola, wysPola);
             }
 
-            switch(planszagry[i+2][j+2]) {
-            case 1: {
+            switch(planszagry[i+2][j+2])
+            {
+            case 1:
+                {
                     rysownik.setBrush(QBrush(Qt::white));
                     rysownik.drawEllipse(x+7, y+7, szerPola-14, wysPola-14);
                     rysownik.setBrush(QBrush(Qt::gray));
                     rysownik.drawEllipse(x+7, y+7, (szerPola-14)/2, (wysPola-14)/2);
                 } break;
-            case 2: {
+            case 2:
+                {
                     rysownik.setBrush(QBrush(Qt::black));
                     rysownik.drawEllipse(x+7, y+7, szerPola-14, wysPola-14);
                     rysownik.setBrush(QBrush(Qt::blue));
                     rysownik.drawEllipse(x+7, y+7, (szerPola-14)/2, (wysPola-14)/2);
                 } break;
-            case 11: {
-                    rysownik.setBrush(QBrush(Qt::white));
-                    rysownik.drawEllipse(x+7, y+7, szerPola-14, wysPola-14);
-                    rysownik.setBrush(QBrush(Qt::gray));
-                    rysownik.drawEllipse(x+7, y+7, (szerPola-14)/2, (wysPola-14)/2);
-                    rysownik.setBrush(QBrush(Qt::black));
-                    rysownik.drawEllipse(x+20, y+20, szerPola-40, wysPola-40);
-                    rysownik.setBrush(QBrush(Qt::blue));
-                    rysownik.drawEllipse(x+7, y+7, (szerPola-14)/2, (wysPola-14)/2);
-                } break;
-            case 12: {
-                    rysownik.setBrush(QBrush(Qt::black));
-                    rysownik.drawEllipse(x+7, y+7, szerPola-14, wysPola-14);
-                    rysownik.setBrush(QBrush(Qt::blue));
-                    rysownik.drawEllipse(x+7, y+7, (szerPola-14)/2, (wysPola-14)/2);
-                    rysownik.setBrush(QBrush(Qt::white));
-                    rysownik.drawEllipse(x+20, y+20, szerPola-40, wysPola-40);
-                    rysownik.setBrush(QBrush(Qt::gray));
-                    rysownik.drawEllipse(x+7, y+7, (szerPola-14)/2, (wysPola-14)/2);
-                } break;
-            case -1: {
-                    rysownik.setBrush(QBrush(Qt::yellow));
-                    rysownik.drawRect(x, y, szerPola, wysPola);
-                    rysownik.setBrush(QBrush(Qt::white));
-                    rysownik.drawEllipse(x+7, y+7, szerPola-14, wysPola-14);
-                    rysownik.setBrush(QBrush(Qt::gray));
-                    rysownik.drawEllipse(x+7, y+7, (szerPola-14)/2, (wysPola-14)/2);
-                } break;
-            case -2: {
-                    rysownik.setBrush(QBrush(Qt::yellow));
-                    rysownik.drawRect(x, y, szerPola, wysPola);
-                    rysownik.setBrush(QBrush(Qt::black));
-                    rysownik.drawEllipse(x+7, y+7, szerPola-14, wysPola-14);
-                    rysownik.setBrush(QBrush(Qt::blue));
-                    rysownik.drawEllipse(x+7, y+7, (szerPola-14)/2, (wysPola-14)/2);
-                } break;
-            case -11: {
-                    rysownik.setBrush(QBrush(Qt::yellow));
-                    rysownik.drawRect(x, y, szerPola, wysPola);
+            case 11:
+                {
                     rysownik.setBrush(QBrush(Qt::white));
                     rysownik.drawEllipse(x+7, y+7, szerPola-14, wysPola-14);
                     rysownik.setBrush(QBrush(Qt::gray));
@@ -906,7 +962,50 @@ void Gra::paintEvent(QPaintEvent*) {
                     rysownik.setBrush(QBrush(Qt::blue));
                     rysownik.drawEllipse(x+7, y+7, (szerPola-14)/2, (wysPola-14)/2);
                 } break;
-            case -12: {
+            case 12:
+                {
+                    rysownik.setBrush(QBrush(Qt::black));
+                    rysownik.drawEllipse(x+7, y+7, szerPola-14, wysPola-14);
+                    rysownik.setBrush(QBrush(Qt::blue));
+                    rysownik.drawEllipse(x+7, y+7, (szerPola-14)/2, (wysPola-14)/2);
+                    rysownik.setBrush(QBrush(Qt::white));
+                    rysownik.drawEllipse(x+20, y+20, szerPola-40, wysPola-40);
+                    rysownik.setBrush(QBrush(Qt::gray));
+                    rysownik.drawEllipse(x+7, y+7, (szerPola-14)/2, (wysPola-14)/2);
+                } break;
+            case -1:
+                {
+                    rysownik.setBrush(QBrush(Qt::yellow));
+                    rysownik.drawRect(x, y, szerPola, wysPola);
+                    rysownik.setBrush(QBrush(Qt::white));
+                    rysownik.drawEllipse(x+7, y+7, szerPola-14, wysPola-14);
+                    rysownik.setBrush(QBrush(Qt::gray));
+                    rysownik.drawEllipse(x+7, y+7, (szerPola-14)/2, (wysPola-14)/2);
+                } break;
+            case -2:
+                {
+                    rysownik.setBrush(QBrush(Qt::yellow));
+                    rysownik.drawRect(x, y, szerPola, wysPola);
+                    rysownik.setBrush(QBrush(Qt::black));
+                    rysownik.drawEllipse(x+7, y+7, szerPola-14, wysPola-14);
+                    rysownik.setBrush(QBrush(Qt::blue));
+                    rysownik.drawEllipse(x+7, y+7, (szerPola-14)/2, (wysPola-14)/2);
+                } break;
+            case -11:
+                {
+                    rysownik.setBrush(QBrush(Qt::yellow));
+                    rysownik.drawRect(x, y, szerPola, wysPola);
+                    rysownik.setBrush(QBrush(Qt::white));
+                    rysownik.drawEllipse(x+7, y+7, szerPola-14, wysPola-14);
+                    rysownik.setBrush(QBrush(Qt::gray));
+                    rysownik.drawEllipse(x+7, y+7, (szerPola-14)/2, (wysPola-14)/2);
+                    rysownik.setBrush(QBrush(Qt::black));
+                    rysownik.drawEllipse(x+20, y+20, szerPola-40, wysPola-40);
+                    rysownik.setBrush(QBrush(Qt::blue));
+                    rysownik.drawEllipse(x+7, y+7, (szerPola-14)/2, (wysPola-14)/2);
+                } break;
+            case -12:
+                {
                     rysownik.setBrush(QBrush(Qt::yellow));
                     rysownik.drawRect(x, y, szerPola, wysPola);
                     rysownik.setBrush(QBrush(Qt::black));
