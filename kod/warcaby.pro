@@ -1,15 +1,20 @@
+#-------------------------------------------------
+#
+# Project created by QtCreator 2010-05-09T13:00:59
+#
+#-------------------------------------------------
 
 TARGET = warcaby
 TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        gra.cpp \
-    interfejs.cpp
+    interfejs.cpp \
+    gra.cpp
 
-HEADERS  += gra.h\
-            interfejs.h \
-    interfejs.h
+HEADERS  += \
+    interfejs.h \
+    gra.h
 QT += widgets
 
 RC_FILE = ikona.rc

@@ -8,12 +8,7 @@
 #include <QWidget>
 
 #include <fstream>
-#include <iostream>
-
 #include "gra.h"
-
-using namespace std;
-
 
 class Interfejs : public QWidget {
   Q_OBJECT
