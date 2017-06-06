@@ -5,24 +5,26 @@ Interfejs::Interfejs() {
 
     gra = new Gra();
 
-    setWindowTitle("Witaj w grze warcaby!");
-    setFixedSize(600,500);
+        setWindowTitle("Witaj w grze warcaby!");
+        setFixedSize(600,500);
 
-    pbNOWA_GRA = new QPushButton(tr("&NOWA GRA"), this);
-    pbZAPISZ = new QPushButton(tr("&ZAPISZ GRE"), this);
-    pbZAPISZ->setDisabled(true);
-    connect(gra, SIGNAL(saveOn()), this, SLOT(Zapisz()));
-    connect(gra, SIGNAL(saveOff()), this, SLOT(Niezapisuj()));
+        pbNOWA_GRA = new QPushButton(tr("&NOWA GRA"), this);
+        pbZAPISZ = new QPushButton(tr("&ZAPISZ GRE"), this);
+        pbZAPISZ->setDisabled(true);
+        connect(gra, SIGNAL(saveOn()), this, SLOT(Zapisz()));
+        connect(gra, SIGNAL(saveOff()), this, SLOT(Niezapisuj()));
 
-    pbWCZYTAJ = new QPushButton(tr("&WCZYTAJ GRE"), this);
+        pbWCZYTAJ = new QPushButton(tr("&WCZYTAJ GRE"), this);
 
-    pbKONIEC_GRY = new QPushButton(tr("&KONIEC"), this);
+        pbKONIEC_GRY = new QPushButton(tr("&KONIEC"), this);
 
         infoLabel = new QLabel(tr("<br>ROZPOCZNIJ<br><b>NOWA GRE</b><br>"));
-        infoLabel->setFrameStyle(QFrame::StyledPanel | QFrame::Raised/*Sunken*/);
+        infoLabel->setFrameStyle(QFrame::WinPanel | QFrame::Sunken);
         infoLabel->setAlignment(Qt::AlignCenter);
         connect(gra, SIGNAL(zmianaetapu(QString)), infoLabel, SLOT(setText(QString)));
 
+        autorLabel = new QLabel(tr("<b>INPG<br>2017</b>"));
+        autorLabel->setAlignment(Qt::AlignCenter);
 
         QVBoxLayout *lPrzyciski = new QVBoxLayout();
         lPrzyciski->addStretch(1);
@@ -31,11 +33,11 @@ Interfejs::Interfejs() {
         lPrzyciski->addWidget(infoLabel);
         lPrzyciski->addStretch(1);
         lPrzyciski->addWidget(pbZAPISZ);
-        lPrzyciski->addStretch(1);
         lPrzyciski->addWidget(pbWCZYTAJ);
-        lPrzyciski->addStretch(1);
         lPrzyciski->addWidget(pbKONIEC_GRY);
         lPrzyciski->addStretch(10);
+        lPrzyciski->addWidget(autorLabel);
+        lPrzyciski->addStretch(1);
 
         QHBoxLayout *lPlansza = new QHBoxLayout();
         lPlansza->addLayout(lPrzyciski);

@@ -1,7 +1,3 @@
-/*
- * Plik nag?ówkowy gra.h
-*/
-
 #pragma once
 
 #include <QBoxLayout>
@@ -13,11 +9,7 @@
 
 #include <fstream>
 
-
-using namespace std;
-
-class Gra : public QWidget
-{
+class Gra : public QWidget {
 
         Q_OBJECT;
 
@@ -48,7 +40,7 @@ class Gra : public QWidget
                 void saveOn();
                 void saveOff();
         private:
-                int i;
+                 int i;
                 int j;
 
                 int poz_x;
@@ -64,3 +56,5 @@ class Gra : public QWidget
                 int zbijanie;
                 int nast_zbijanie;
 };
+
+
